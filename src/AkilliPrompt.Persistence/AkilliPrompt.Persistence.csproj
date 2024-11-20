@@ -10,4 +10,12 @@
     <ProjectReference Include="..\AkilliPrompt.Domain\AkilliPrompt.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="EntityFramework\Configurations\" />
+  </ItemGroup>
+
 </Project>
