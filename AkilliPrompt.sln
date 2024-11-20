@@ -3,8 +3,41 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35514.174 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3BB6ED29-C82B-4633-A40D-7FDB570168DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{17C870BC-239B-4DEA-94C7-6D9DE7887C3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkilliPrompt.Domain", "src\AkilliPrompt.Domain\AkilliPrompt.Domain.csproj", "{C8488BCA-BC9F-484A-9450-4DF494B2E6C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkilliPrompt.Persistence", "src\AkilliPrompt.Persistence\AkilliPrompt.Persistence.csproj", "{3400E90E-7504-40DD-A242-A3B291B3DB05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkilliPrompt.WebApi", "src\AkilliPrompt.WebApi\AkilliPrompt.WebApi.csproj", "{2A6044C5-6A4C-4E38-B5D8-2581523B017A}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8488BCA-BC9F-484A-9450-4DF494B2E6C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8488BCA-BC9F-484A-9450-4DF494B2E6C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8488BCA-BC9F-484A-9450-4DF494B2E6C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8488BCA-BC9F-484A-9450-4DF494B2E6C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3400E90E-7504-40DD-A242-A3B291B3DB05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3400E90E-7504-40DD-A242-A3B291B3DB05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3400E90E-7504-40DD-A242-A3B291B3DB05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3400E90E-7504-40DD-A242-A3B291B3DB05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A6044C5-6A4C-4E38-B5D8-2581523B017A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A6044C5-6A4C-4E38-B5D8-2581523B017A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A6044C5-6A4C-4E38-B5D8-2581523B017A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A6044C5-6A4C-4E38-B5D8-2581523B017A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8488BCA-BC9F-484A-9450-4DF494B2E6C7} = {3BB6ED29-C82B-4633-A40D-7FDB570168DE}
+		{3400E90E-7504-40DD-A242-A3B291B3DB05} = {3BB6ED29-C82B-4633-A40D-7FDB570168DE}
+		{2A6044C5-6A4C-4E38-B5D8-2581523B017A} = {3BB6ED29-C82B-4633-A40D-7FDB570168DE}
 	EndGlobalSection
 EndGlobal
