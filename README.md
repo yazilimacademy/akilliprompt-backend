@@ -1,9 +1,17 @@
 # Akıllı Prompt Backend
 
-<p style="display: flex; justify-content: center; align-items: center; gap: 30px;">
-  <img src="./logos/yazilim_academy_logo_320.png" alt="Yazılım Academy Logo" width="320"/>
-  <img src="./logos/logo_240x202.png" alt="Akıllı Prompt Logo" width="240"/>
-</p>
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" valign="middle">
+        <img src="./logos/yazilim_academy_logo_320.png" alt="Yazılım Academy Logo" width="320"/>
+      </td>
+      <td align="center" valign="middle">
+        <img src="./logos/logo_240x202.png" alt="Akıllı Prompt Logo" width="240"/>
+      </td>
+    </tr>
+  </table>
+</div>
 
 Merhaba, Türkiye'nin geliştirici topluluğu! Şu an üzerinde çalıştığımız "Akıllı Prompt" projesine hoşgeldiniz. Bu proje, ChatGPT, Claude, Gemini, MidJourney gibi farklı yapay zeka modellerinin kullanıcıları için bir "prompt" kütüphanesi ve topluluğu yaratmayı amaçlıyor. Bizim amacımız, bu alandaki geliştiricileri ve meraklıları bir araya getirerek, paylaşım ve dayanışma ruhunu canlı tutmak. Projemizi açık kaynak hale getirerek Türkiye geliştirici topluluğuna katkıda bulunmak istiyoruz. 🤝
 
