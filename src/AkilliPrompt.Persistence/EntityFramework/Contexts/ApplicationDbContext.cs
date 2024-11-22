@@ -11,6 +11,7 @@ public sealed class ApplicationDbContext : IdentityDbContext<ApplicationUser, Ap
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
+
     }
 
     public DbSet<Placeholder> Placeholders { get; set; }
