@@ -1,5 +1,7 @@
 using AkilliPrompt.Domain.Entities;
 using AkilliPrompt.Persistence.EntityFramework.Contexts;
+using AkilliPrompt.WebApi.Helpers;
+using AkilliPrompt.WebApi.Models;
 using AkilliPrompt.WebApi.V1.Models.Categories;
 using Asp.Versioning;
 using Microsoft.AspNetCore.Authorization;
@@ -87,7 +89,7 @@ public sealed class CategoriesController : ControllerBase
 
         InvalidateCache();
 
-        return Ok(category);
+        return Ok(ResponseDto<long>.Success(category.Id, MessageHelper.GetApiSuccessCreatedMessage("Kategori")));
     }
 
     [HttpPut("{id:long}")]
@@ -110,7 +112,7 @@ public sealed class CategoriesController : ControllerBase
 
         InvalidateCache(id);
 
-        return Ok(category);
+        return Ok(ResponseDto<long>.Success(MessageHelper.GetApiSuccessUpdatedMessage("Kategori")));
     }
 
     [HttpDelete("{id:long}")]
@@ -126,7 +128,7 @@ public sealed class CategoriesController : ControllerBase
 
         InvalidateCache(id);
 
-        return NoContent();
+        return Ok(ResponseDto<long>.Success(MessageHelper.GetApiSuccessDeletedMessage("Kategori")));
     }
 
     private void InvalidateCache(long? categoryId = null)
