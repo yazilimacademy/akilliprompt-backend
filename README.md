@@ -1,7 +1,7 @@
 # Akıllı Prompt Backend
 
 <p align="center" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
-  <img src="./logos/yazilim_academy_logo_240.png" alt="Yazılım Academy Logo" width="300"/>
+  <img src="./logos/yazilim_academy_logo_240.png" alt="Yazılım Academy Logo" width="240"/>
   <img src="./logos/logo_240x202.png" alt="Akıllı Prompt Logo" width="240"/>
 </p>
 
