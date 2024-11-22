@@ -9,4 +9,10 @@ public abstract class EntityBase : ICreatedByEntity, IModifiedByEntity
 
     public string? ModifiedByUserId { get; set; }
     public DateTimeOffset? ModifiedAt { get; set; }
+
+    private readonly List<IDomainEvent> _domainEvents = [];
+    public IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
+
+    protected void AddDomainEvent(IDomainEvent domainEvent) => _domainEvents.Add(domainEvent);
+    protected void ClearDomainEvents() => _domainEvents.Clear();
 }

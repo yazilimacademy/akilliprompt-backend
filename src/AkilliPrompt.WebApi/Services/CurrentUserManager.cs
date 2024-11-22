@@ -3,7 +3,7 @@ using AkilliPrompt.Persistence.Services;
 
 namespace AkilliPrompt.WebApi.Services;
 
-public class CurrentUserManager : ICurrentUserService
+public sealed class CurrentUserManager : ICurrentUserService
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
 

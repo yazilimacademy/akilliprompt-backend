@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace AkilliPrompt.Persistence.EntityFramework.Interceptors
 {
-    public class EntityInterceptor : SaveChangesInterceptor
+    public sealed class EntityInterceptor : SaveChangesInterceptor
     {
         private readonly ICurrentUserService _currentUserService;
 
