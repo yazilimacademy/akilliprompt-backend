@@ -19,8 +19,8 @@ public sealed class PromptConfiguration : IEntityTypeConfiguration<Prompt>
 
         // Description
         builder.Property(x => x.Description)
-            .IsRequired(false)
-            .HasMaxLength(1000);
+            .IsRequired()
+            .HasMaxLength(5000);
 
         // Content
         builder.Property(x => x.Content)
@@ -28,6 +28,7 @@ public sealed class PromptConfiguration : IEntityTypeConfiguration<Prompt>
 
         // ImageUrl
         builder.Property(x => x.ImageUrl)
+            .HasMaxLength(1024)
             .IsRequired(false);
 
         // IsActive
@@ -35,11 +36,6 @@ public sealed class PromptConfiguration : IEntityTypeConfiguration<Prompt>
             .IsRequired()
             .HasDefaultValue(false);
 
-
-        // PromptCategories Relationship
-        builder.HasMany(x => x.PromptCategories)
-            .WithOne(pc => pc.Prompt)
-            .HasForeignKey(pc => pc.PromptId);
 
         // UserFavoritePrompts Relationship
         builder.HasMany(x => x.UserFavoritePrompts)

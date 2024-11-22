@@ -25,14 +25,7 @@ public sealed class UserPromptCommentConfiguration : IEntityTypeConfiguration<Us
         // User Relationship
         builder.HasOne(x => x.User)
             .WithMany(u => u.UserPromptComments)
-            .HasForeignKey(x => x.UserId)
-            .IsRequired();
-
-        // Prompt Relationship
-        builder.HasOne(x => x.Prompt)
-            .WithMany(/*p => p.UserPromptComments*/) //Todo: Should this value be in prompt.cs?
-            .HasForeignKey(x => x.PromptId)
-            .IsRequired();
+            .HasForeignKey(x => x.UserId);
 
         // Parent Comment Relationship
         builder.HasOne(x => x.ParentComment)
@@ -40,14 +33,14 @@ public sealed class UserPromptCommentConfiguration : IEntityTypeConfiguration<Us
             .HasForeignKey(x => x.ParentCommentId)
             .IsRequired(false);
 
-
         // CreatedAt
         builder.Property(p => p.CreatedAt)
             .IsRequired();
 
         // CreatedByUserId
         builder.Property(p => p.CreatedByUserId)
-            .IsRequired(false);
+            .IsRequired(false)
+            .HasMaxLength(100);
 
         // ModifiedAt
         builder.Property(p => p.ModifiedAt)
@@ -55,7 +48,8 @@ public sealed class UserPromptCommentConfiguration : IEntityTypeConfiguration<Us
 
         // ModifiedByUserId
         builder.Property(p => p.ModifiedByUserId)
-            .IsRequired(false);
+            .IsRequired(false)
+            .HasMaxLength(100);
 
         // Table Name
         builder.ToTable("user_prompt_comments");

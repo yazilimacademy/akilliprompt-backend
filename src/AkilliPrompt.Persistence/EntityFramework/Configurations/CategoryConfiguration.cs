@@ -19,15 +19,10 @@ public sealed class CategoryConfiguration : IEntityTypeConfiguration<Category>
 
         // Description
         builder.Property(x => x.Description)
-            .IsRequired(false)
+            .IsRequired()
             .HasMaxLength(500);
 
-
-        // PromptCategories Relationship
-        builder.HasMany(x => x.PromptCategories)
-            .WithOne(pc => pc.Category)
-            .HasForeignKey(pc => pc.CategoryId);
-
+        // Common Properties
 
         // CreatedAt
         builder.Property(p => p.CreatedAt)
@@ -35,8 +30,8 @@ public sealed class CategoryConfiguration : IEntityTypeConfiguration<Category>
 
         // CreatedByUserId
         builder.Property(p => p.CreatedByUserId)
-            .IsRequired(false);
-            //.HasMaxLength(150);
+            .IsRequired(false)
+        .HasMaxLength(100);
 
         // ModifiedAt
         builder.Property(p => p.ModifiedAt)
@@ -44,8 +39,8 @@ public sealed class CategoryConfiguration : IEntityTypeConfiguration<Category>
 
         // ModifiedByUserId
         builder.Property(p => p.ModifiedByUserId)
-            .IsRequired(false);
-            //.HasMaxLength(150);
+            .IsRequired(false)
+            .HasMaxLength(100);
 
         // Table Name
         builder.ToTable("categories");

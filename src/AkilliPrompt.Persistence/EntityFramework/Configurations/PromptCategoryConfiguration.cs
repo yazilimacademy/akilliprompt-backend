@@ -34,8 +34,8 @@ public sealed class PromptCategoryConfiguration : IEntityTypeConfiguration<Promp
 
         // CreatedByUserId
         builder.Property(p => p.CreatedByUserId)
-            .IsRequired(false);
-            //.HasMaxLength(150);
+            .IsRequired(false)
+            .HasMaxLength(100);
 
         // ModifiedAt
         builder.Property(p => p.ModifiedAt)
@@ -43,8 +43,8 @@ public sealed class PromptCategoryConfiguration : IEntityTypeConfiguration<Promp
 
         // ModifiedByUserId
         builder.Property(p => p.ModifiedByUserId)
-            .IsRequired(false);
-            //.HasMaxLength(150);
+            .IsRequired(false)
+            .HasMaxLength(100);
 
         // Table Name
         builder.ToTable("prompt_categories");

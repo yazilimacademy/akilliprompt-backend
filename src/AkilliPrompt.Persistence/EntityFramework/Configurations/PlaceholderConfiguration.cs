@@ -15,15 +15,7 @@ public sealed class PlaceholderConfiguration : IEntityTypeConfiguration<Placehol
         // Name
         builder.Property(x => x.Name)
             .IsRequired()
-            .HasMaxLength(255);
-
-
-        // Prompt Relationship
-        builder.HasOne(x => x.Prompt)
-            .WithMany(p => p.Placeholders)
-            .HasForeignKey(x => x.PromptId)            
-            .IsRequired();
-
+            .HasMaxLength(200);
 
         // CreatedAt
         builder.Property(p => p.CreatedAt)
@@ -31,8 +23,8 @@ public sealed class PlaceholderConfiguration : IEntityTypeConfiguration<Placehol
 
         // CreatedByUserId
         builder.Property(p => p.CreatedByUserId)
-            .IsRequired(false);
-        //.HasMaxLength(150);
+            .IsRequired(false)
+            .HasMaxLength(100);
 
         // ModifiedAt
         builder.Property(p => p.ModifiedAt)
@@ -40,8 +32,8 @@ public sealed class PlaceholderConfiguration : IEntityTypeConfiguration<Placehol
 
         // ModifiedByUserId
         builder.Property(p => p.ModifiedByUserId)
-            .IsRequired(false);
-        //.HasMaxLength(150);
+            .IsRequired(false)
+            .HasMaxLength(100);
 
         // Table Name
         builder.ToTable("placeholders");

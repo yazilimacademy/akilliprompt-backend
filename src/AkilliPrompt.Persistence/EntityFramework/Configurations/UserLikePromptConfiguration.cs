@@ -12,18 +12,15 @@ public sealed class UserLikePromptConfiguration : IEntityTypeConfiguration<UserL
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
 
-
         // User Relationship
         builder.HasOne(x => x.User)
             .WithMany(u => u.UserLikePrompts)
-            .HasForeignKey(x => x.UserId)
-            .IsRequired();
+            .HasForeignKey(x => x.UserId);
 
         // Prompt Relationship
         builder.HasOne(x => x.Prompt)
             .WithMany(p => p.UserLikePrompts)
-            .HasForeignKey(x => x.PromptId)
-            .IsRequired();
+            .HasForeignKey(x => x.PromptId);
 
         // Unique Constraint for User and Prompt Combination
         builder.HasIndex(x => new { x.UserId, x.PromptId })
@@ -36,7 +33,8 @@ public sealed class UserLikePromptConfiguration : IEntityTypeConfiguration<UserL
 
         // CreatedByUserId
         builder.Property(p => p.CreatedByUserId)
-            .IsRequired(false);
+            .IsRequired(false)
+            .HasMaxLength(100);
 
         // ModifiedAt
         builder.Property(p => p.ModifiedAt)
@@ -44,7 +42,8 @@ public sealed class UserLikePromptConfiguration : IEntityTypeConfiguration<UserL
 
         // ModifiedByUserId
         builder.Property(p => p.ModifiedByUserId)
-            .IsRequired(false);
+            .IsRequired(false)
+            .HasMaxLength(100);
 
         // Table Name
         builder.ToTable("user_like_prompts");

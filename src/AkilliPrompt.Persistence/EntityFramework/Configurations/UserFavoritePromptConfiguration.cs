@@ -16,14 +16,12 @@ public sealed class UserFavoritePromptConfiguration : IEntityTypeConfiguration<U
         // User Relationship
         builder.HasOne(x => x.User)
             .WithMany(u => u.UserFavoritePrompts)
-            .HasForeignKey(x => x.UserId)
-            .IsRequired();
+            .HasForeignKey(x => x.UserId);
 
         // Prompt Relationship
         builder.HasOne(x => x.Prompt)
             .WithMany(p => p.UserFavoritePrompts)
-            .HasForeignKey(x => x.PromptId)
-            .IsRequired();
+            .HasForeignKey(x => x.PromptId);
 
         // Unique Constraint for User and Prompt Combination
         builder.HasIndex(x => new { x.UserId, x.PromptId })
@@ -36,7 +34,8 @@ public sealed class UserFavoritePromptConfiguration : IEntityTypeConfiguration<U
 
         // CreatedByUserId
         builder.Property(p => p.CreatedByUserId)
-            .IsRequired(false);
+            .IsRequired(false)
+            .HasMaxLength(100);
 
         // ModifiedAt
         builder.Property(p => p.ModifiedAt)
@@ -44,7 +43,8 @@ public sealed class UserFavoritePromptConfiguration : IEntityTypeConfiguration<U
 
         // ModifiedByUserId
         builder.Property(p => p.ModifiedByUserId)
-            .IsRequired(false);
+            .IsRequired(false)
+            .HasMaxLength(100);
 
         // Table Name
         builder.ToTable("user_favorite_prompts");

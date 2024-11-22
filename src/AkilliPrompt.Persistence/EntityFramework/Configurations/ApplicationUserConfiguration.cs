@@ -73,7 +73,7 @@ public sealed class ApplicationUserConfiguration : IEntityTypeConfiguration<Appl
         // CreatedByUserId
         builder.Property(p => p.CreatedByUserId)
             .IsRequired(false)
-            .HasMaxLength(150);
+            .HasMaxLength(100);
 
         // ModifiedOn
         builder.Property(p => p.ModifiedAt)
@@ -82,7 +82,7 @@ public sealed class ApplicationUserConfiguration : IEntityTypeConfiguration<Appl
         // ModifiedByUserId
         builder.Property(p => p.ModifiedByUserId)
             .IsRequired(false)
-            .HasMaxLength(150);
+            .HasMaxLength(100);
 
         builder.ToTable("application_users");
     }

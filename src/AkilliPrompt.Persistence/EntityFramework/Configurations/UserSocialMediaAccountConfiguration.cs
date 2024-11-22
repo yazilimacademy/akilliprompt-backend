@@ -14,24 +14,20 @@ public sealed class UserSocialMediaAccountConfiguration : IEntityTypeConfigurati
 
         // SocialMediaType
         builder.Property(x => x.SocialMediaType)
+            .HasColumnType("smallint")
+            .HasConversion<int>()
             .IsRequired();
 
         // Url
         builder.Property(x => x.Url)
             .IsRequired()
-            .HasMaxLength(500);
+            .HasMaxLength(1024);
 
 
         // User Relationship
         builder.HasOne(x => x.User)
             .WithMany(u => u.UserSocialMediaAccounts)
-            .HasForeignKey(x => x.UserId)
-            .IsRequired();
-
-        // Unique Constraint for User and SocialMediaType Combination
-        builder.HasIndex(x => new { x.UserId, x.SocialMediaType })
-            .IsUnique();
-
+            .HasForeignKey(x => x.UserId);
 
         // CreatedAt
         builder.Property(p => p.CreatedAt)
@@ -39,7 +35,8 @@ public sealed class UserSocialMediaAccountConfiguration : IEntityTypeConfigurati
 
         // CreatedByUserId
         builder.Property(p => p.CreatedByUserId)
-            .IsRequired(false);
+            .IsRequired(false)
+            .HasMaxLength(100);
 
         // ModifiedAt
         builder.Property(p => p.ModifiedAt)
@@ -47,7 +44,8 @@ public sealed class UserSocialMediaAccountConfiguration : IEntityTypeConfigurati
 
         // ModifiedByUserId
         builder.Property(p => p.ModifiedByUserId)
-            .IsRequired(false);
+            .IsRequired(false)
+            .HasMaxLength(100);
 
         // Table Name
         builder.ToTable("user_social_media_accounts");
