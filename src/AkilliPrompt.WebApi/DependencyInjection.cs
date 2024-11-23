@@ -3,11 +3,13 @@ using AkilliPrompt.Domain.Identity;
 using AkilliPrompt.Domain.Settings;
 using AkilliPrompt.Persistence.EntityFramework.Contexts;
 using AkilliPrompt.Persistence.Services;
+using AkilliPrompt.WebApi.Behaviors;
 using AkilliPrompt.WebApi.Configuration;
 using AkilliPrompt.WebApi.Services;
 using AkilliPrompt.WebApi.V1.Prompts;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 
 namespace AkilliPrompt.WebApi;
@@ -53,17 +55,16 @@ public static class DependencyInjection
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
-        return services;
-    }
-
-    public static IServiceCollection AddFluentValidation(this IServiceCollection services)
-    {
-        services.AddFluentValidationAutoValidation();
-
-        services.AddFluentValidationClientsideAdapters();
-
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
+        services.AddMediatR(config =>
+        {
+            config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+
+            config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        });
+
         return services;
     }
+
 }
