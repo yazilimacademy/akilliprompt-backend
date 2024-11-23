@@ -4,6 +4,7 @@ using AkilliPrompt.WebApi.Helpers;
 using AkilliPrompt.WebApi.Models;
 using AkilliPrompt.WebApi.V1.Categories.Create;
 using Asp.Versioning;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
@@ -21,14 +22,16 @@ public sealed class CategoriesController : ControllerBase
     private readonly MemoryCacheEntryOptions _cacheOptions;
     private readonly IMemoryCache _memoryCache;
     private readonly ApplicationDbContext _dbContext;
+    private readonly ISender _mediator;
 
     public CategoriesController(
         IMemoryCache memoryCache,
-        ApplicationDbContext dbContext)
+        ApplicationDbContext dbContext,
+        ISender mediator)
     {
         _memoryCache = memoryCache;
         _dbContext = dbContext;
-
+        _mediator = mediator;
         var slidingExpiration = TimeSpan.FromMinutes(10);
         var absoluteExpiration = TimeSpan.FromHours(24);
 
@@ -77,17 +80,9 @@ public sealed class CategoriesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateAsync(CreateCategoryDto dto, CancellationToken cancellationToken)
+    public async Task<IActionResult> CreateAsync(CreateCategoryCommand command, CancellationToken cancellationToken)
     {
-        var category = Category.Create(dto.Name, dto.Description);
-
-        _dbContext.Categories.Add(category);
-
-        await _dbContext.SaveChangesAsync(cancellationToken);
-
-        InvalidateCache();
-
-        return Ok(ResponseDto<Guid>.Success(category.Id, MessageHelper.GetApiSuccessCreatedMessage("Kategori")));
+        return Ok(await _mediator.Send(command, cancellationToken));
     }
 
     [HttpPut("{id:guid}")]
@@ -103,8 +98,7 @@ public sealed class CategoriesController : ControllerBase
         if (category is null)
             return NotFound();
 
-        category.Name = dto.Name;
-        category.Description = dto.Description;
+        category.Update(dto.Name, dto.Description);
 
         await _dbContext.SaveChangesAsync(cancellationToken);
 

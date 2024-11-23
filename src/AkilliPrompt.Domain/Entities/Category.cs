@@ -5,8 +5,8 @@ namespace AkilliPrompt.Domain.Entities;
 
 public sealed class Category : EntityBase
 {
-    public string Name { get; set; }
-    public string Description { get; set; }
+    public string Name { get; private set; }
+    public string Description { get; private set; }
 
     public ICollection<PromptCategory> PromptCategories { get; set; } = [];
 
@@ -18,5 +18,11 @@ public sealed class Category : EntityBase
             Name = name,
             Description = description,
         };
+    }
+
+    public void Update(string name, string description)
+    {
+        Name = name;
+        Description = description;
     }
 }
