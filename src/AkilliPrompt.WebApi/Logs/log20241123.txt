@@ -1,0 +1,350 @@
+2024-11-23 11:58:59.043 +03:00 [INF] Starting web application
+2024-11-23 11:58:59.341 +03:00 [FTL] Application terminated unexpectedly
+System.ArgumentException: Invalid tenant id provided. You can locate your tenant id by following the instructions listed here: https://learn.microsoft.com/partner-center/find-ids-and-domain-names (Parameter 'tenantId')
+   at Azure.Identity.Validations.ValidateTenantId(String tenantId, String argumentName, Boolean allowNull)
+   at Azure.Identity.ClientSecretCredential..ctor(String tenantId, String clientId, String clientSecret, TokenCredentialOptions options, CredentialPipeline pipeline, MsalConfidentialClient client)
+   at Azure.Identity.ClientSecretCredential..ctor(String tenantId, String clientId, String clientSecret)
+   at Program.<Main>$(String[] args) in D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi\Program.cs:line 22
+2024-11-23 11:59:50.381 +03:00 [INF] Starting web application
+2024-11-23 11:59:52.765 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 11:59:52.767 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 11:59:52.768 +03:00 [INF] Hosting environment: Development
+2024-11-23 11:59:52.768 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi
+2024-11-23 12:41:03.991 +03:00 [INF] Application is shutting down...
+2024-11-23 12:41:12.837 +03:00 [INF] Starting web application
+2024-11-23 12:41:14.856 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 12:41:14.858 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 12:41:14.859 +03:00 [INF] Hosting environment: Development
+2024-11-23 12:41:14.860 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi
+2024-11-23 12:41:26.481 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger - null null
+2024-11-23 12:41:26.517 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger - 301 0 null 36.9757ms
+2024-11-23 12:41:26.530 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 12:41:26.557 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 27.5788ms
+2024-11-23 12:41:26.620 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui.css - null null
+2024-11-23 12:41:26.620 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.css - null null
+2024-11-23 12:41:26.622 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-bundle.js - null null
+2024-11-23 12:41:26.622 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-standalone-preset.js - null null
+2024-11-23 12:41:26.622 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:41:26.627 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:41:26.628 +03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-11-23 12:41:26.631 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 8.814ms
+2024-11-23 12:41:26.634 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 7.3886ms
+2024-11-23 12:41:26.634 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.css - 200 202 text/css 13.9381ms
+2024-11-23 12:41:26.635 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-11-23 12:41:26.638 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-11-23 12:41:26.644 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui.css - 200 152035 text/css 24.874ms
+2024-11-23 12:41:26.645 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-standalone-preset.js - 200 230007 text/javascript 22.4894ms
+2024-11-23 12:41:26.649 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:41:26.651 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:41:26.652 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 3.0835ms
+2024-11-23 12:41:26.654 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.5062ms
+2024-11-23 12:41:26.666 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-11-23 12:41:26.667 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-bundle.js - 200 1426001 text/javascript 44.7418ms
+2024-11-23 12:41:26.684 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-bundle.js - null null
+2024-11-23 12:41:26.690 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-11-23 12:41:26.691 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-bundle.js - 200 1426001 text/javascript 7.2506ms
+2024-11-23 12:41:26.698 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-standalone-preset.js - null null
+2024-11-23 12:41:26.701 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-11-23 12:41:26.702 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-standalone-preset.js - 200 230007 text/javascript 3.197ms
+2024-11-23 12:41:26.852 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 12:41:26.862 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/favicon-32x32.png - null null
+2024-11-23 12:41:26.864 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-11-23 12:41:26.865 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/favicon-32x32.png - 200 628 image/png 3.3556ms
+2024-11-23 12:41:26.914 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 62.3741ms
+2024-11-23 12:41:50.714 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 12:41:50.717 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 3.0664ms
+2024-11-23 12:41:50.853 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:41:50.856 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 2.5912ms
+2024-11-23 12:41:50.859 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:41:50.862 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.4083ms
+2024-11-23 12:41:50.891 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:41:50.894 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 3.218ms
+2024-11-23 12:41:50.895 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:41:50.900 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 5.1033ms
+2024-11-23 12:41:50.966 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 12:41:50.973 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.1764ms
+2024-11-23 12:42:08.440 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/api/R?key=real-small-head.png - null null
+2024-11-23 12:42:08.447 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-11-23 12:42:08.449 +03:00 [INF] Executing endpoint 'AkilliPrompt.WebApi.V1.Controllers.R2Controller.GetAsync (AkilliPrompt.WebApi)'
+2024-11-23 12:42:08.458 +03:00 [INF] Route matched with {action = "Get", controller = "R"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAsync(System.String) on controller AkilliPrompt.WebApi.V1.Controllers.R2Controller (AkilliPrompt.WebApi).
+2024-11-23 12:42:08.889 +03:00 [INF] Executed action AkilliPrompt.WebApi.V1.Controllers.R2Controller.GetAsync (AkilliPrompt.WebApi) in 427.5307ms
+2024-11-23 12:42:08.890 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Controllers.R2Controller.GetAsync (AkilliPrompt.WebApi)'
+2024-11-23 12:42:08.891 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Amazon.S3.AmazonS3Exception: Credential access key has length 40, should be 32
+ ---> Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type 'Amazon.Runtime.Internal.HttpErrorResponseException' was thrown.
+   at Amazon.Runtime.HttpWebRequestMessage.ProcessHttpResponseMessage(HttpResponseMessage responseMessage)
+   at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)
+   at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RedirectHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ResponseHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   --- End of inner exception stack trace ---
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)
+   at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)
+   at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)
+   at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.S3Express.S3ExpressPreSigner.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.S3.Internal.AmazonS3ExceptionHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)
+   at AkilliPrompt.WebApi.V1.Controllers.R2Controller.GetAsync(String key)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-11-23 12:42:08.919 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/api/R?key=real-small-head.png - 500 null application/problem+json 478.9631ms
+2024-11-23 12:42:24.766 +03:00 [INF] Application is shutting down...
+2024-11-23 12:43:28.956 +03:00 [INF] Starting web application
+2024-11-23 12:43:30.693 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 12:43:30.696 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 12:43:30.697 +03:00 [INF] Hosting environment: Development
+2024-11-23 12:43:30.697 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi
+2024-11-23 12:43:48.090 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 12:43:48.149 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 59.8106ms
+2024-11-23 12:43:48.198 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.css - null null
+2024-11-23 12:43:48.198 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui.css - null null
+2024-11-23 12:43:48.200 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-bundle.js - null null
+2024-11-23 12:43:48.200 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:43:48.200 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:43:48.200 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-standalone-preset.js - null null
+2024-11-23 12:43:48.205 +03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-11-23 12:43:48.206 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.109ms
+2024-11-23 12:43:48.207 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-11-23 12:43:48.208 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 7.8466ms
+2024-11-23 12:43:48.209 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-11-23 12:43:48.211 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-11-23 12:43:48.212 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.css - 200 202 text/css 14.737ms
+2024-11-23 12:43:48.217 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui.css - 200 152035 text/css 19.6702ms
+2024-11-23 12:43:48.222 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-bundle.js - 200 1426001 text/javascript 21.9558ms
+2024-11-23 12:43:48.223 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-standalone-preset.js - 200 230007 text/javascript 23.1178ms
+2024-11-23 12:43:48.437 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 12:43:48.439 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/favicon-32x32.png - null null
+2024-11-23 12:43:48.442 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-11-23 12:43:48.444 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/favicon-32x32.png - 200 628 image/png 5.1308ms
+2024-11-23 12:43:48.512 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 75.1491ms
+2024-11-23 12:43:49.089 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:43:49.090 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:43:49.092 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.5876ms
+2024-11-23 12:43:49.094 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 4.2773ms
+2024-11-23 12:44:05.276 +03:00 [INF] Application is shutting down...
+2024-11-23 12:44:11.236 +03:00 [INF] Starting web application
+2024-11-23 12:44:13.373 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 12:44:13.376 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 12:44:13.377 +03:00 [INF] Hosting environment: Development
+2024-11-23 12:44:13.378 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi
+2024-11-23 12:44:21.104 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 12:44:21.164 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 60.8503ms
+2024-11-23 12:44:21.210 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.css - null null
+2024-11-23 12:44:21.210 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui.css - null null
+2024-11-23 12:44:21.211 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-standalone-preset.js - null null
+2024-11-23 12:44:21.211 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:44:21.211 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-bundle.js - null null
+2024-11-23 12:44:21.214 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:44:21.216 +03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-11-23 12:44:21.219 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-11-23 12:44:21.219 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 7.8473ms
+2024-11-23 12:44:21.220 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-11-23 12:44:21.225 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 11.1823ms
+2024-11-23 12:44:21.225 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.css - 200 202 text/css 15.3923ms
+2024-11-23 12:44:21.228 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui.css - 200 152035 text/css 17.7671ms
+2024-11-23 12:44:21.228 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-11-23 12:44:21.231 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-standalone-preset.js - 200 230007 text/javascript 19.9329ms
+2024-11-23 12:44:21.240 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-bundle.js - 200 1426001 text/javascript 29.0348ms
+2024-11-23 12:44:21.340 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 12:44:21.342 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/favicon-32x32.png - null null
+2024-11-23 12:44:21.344 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-11-23 12:44:21.346 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/favicon-32x32.png - 200 628 image/png 4.0212ms
+2024-11-23 12:44:21.403 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 62.472ms
+2024-11-23 12:44:21.633 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:44:21.633 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:44:21.635 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.5088ms
+2024-11-23 12:44:21.637 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 4.7024ms
+2024-11-23 12:44:30.494 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/api/R?key=real-small-head.png - null null
+2024-11-23 12:44:30.501 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-11-23 12:44:30.504 +03:00 [INF] Executing endpoint 'AkilliPrompt.WebApi.V1.Controllers.R2Controller.GetAsync (AkilliPrompt.WebApi)'
+2024-11-23 12:44:30.514 +03:00 [INF] Route matched with {action = "Get", controller = "R"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAsync(System.String) on controller AkilliPrompt.WebApi.V1.Controllers.R2Controller (AkilliPrompt.WebApi).
+2024-11-23 12:44:30.970 +03:00 [INF] Executing OkObjectResult, writing value of type 'Amazon.S3.Model.GetObjectResponse'.
+2024-11-23 12:44:31.000 +03:00 [INF] Executed action AkilliPrompt.WebApi.V1.Controllers.R2Controller.GetAsync (AkilliPrompt.WebApi) in 483.1559ms
+2024-11-23 12:44:31.002 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Controllers.R2Controller.GetAsync (AkilliPrompt.WebApi)'
+2024-11-23 12:44:31.003 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: HashStream does not support seeking The unsupported member type is located on type 'System.Int64'. Path: $.ResponseStream.Position.
+ ---> System.NotSupportedException: HashStream does not support seeking
+   at Amazon.Runtime.Internal.Util.HashStream.get_Position()
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-11-23 12:44:31.027 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/api/R?key=real-small-head.png - 500 null application/problem+json 533.5388ms
+2024-11-23 12:45:25.662 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 12:45:25.665 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 2.9168ms
+2024-11-23 12:45:25.775 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:45:25.778 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 2.9936ms
+2024-11-23 12:45:25.792 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:45:25.794 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.3095ms
+2024-11-23 12:45:25.955 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 12:45:25.961 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.9123ms
+2024-11-23 12:45:26.619 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:45:26.619 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:45:26.621 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 2.3758ms
+2024-11-23 12:45:26.622 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.4581ms
+2024-11-23 12:45:31.080 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/api/R?key=real-small-head.png - null null
+2024-11-23 12:45:31.084 +03:00 [INF] Executing endpoint 'AkilliPrompt.WebApi.V1.Controllers.R2Controller.GetAsync (AkilliPrompt.WebApi)'
+2024-11-23 12:45:31.088 +03:00 [INF] Route matched with {action = "Get", controller = "R"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAsync(System.String) on controller AkilliPrompt.WebApi.V1.Controllers.R2Controller (AkilliPrompt.WebApi).
+2024-11-23 12:45:31.289 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-11-23 12:45:31.290 +03:00 [INF] Executed action AkilliPrompt.WebApi.V1.Controllers.R2Controller.GetAsync (AkilliPrompt.WebApi) in 199.874ms
+2024-11-23 12:45:31.290 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Controllers.R2Controller.GetAsync (AkilliPrompt.WebApi)'
+2024-11-23 12:45:31.291 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/api/R?key=real-small-head.png - 200 null text/plain; charset=utf-8 210.8248ms
+2024-11-23 12:46:06.691 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 12:46:06.694 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 2.512ms
+2024-11-23 12:46:06.809 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:46:06.812 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 2.282ms
+2024-11-23 12:46:06.819 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:46:06.822 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.3687ms
+2024-11-23 12:46:06.932 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 12:46:06.938 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.7766ms
+2024-11-23 12:46:07.617 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:46:07.620 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:46:07.621 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 3.5593ms
+2024-11-23 12:46:07.622 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.6703ms
+2024-11-23 12:46:17.238 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 12:46:17.240 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 2.4214ms
+2024-11-23 12:46:17.280 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:46:17.280 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:46:17.283 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 2.2831ms
+2024-11-23 12:46:17.284 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.4073ms
+2024-11-23 12:46:17.292 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:46:17.292 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:46:17.294 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 1.9802ms
+2024-11-23 12:46:17.295 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.2107ms
+2024-11-23 12:46:17.362 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 12:46:17.367 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.0579ms
+2024-11-23 12:46:28.935 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 12:46:28.937 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 1.8713ms
+2024-11-23 12:46:28.984 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:46:28.984 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:46:28.988 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 3.3039ms
+2024-11-23 12:46:28.989 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 4.4308ms
+2024-11-23 12:46:28.996 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:46:28.998 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 2.2001ms
+2024-11-23 12:46:29.064 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 12:46:29.069 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 4.2762ms
+2024-11-23 12:46:38.281 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/api/R/GetImage?key=real-small-head.png - null null
+2024-11-23 12:46:38.284 +03:00 [INF] Executing endpoint 'AkilliPrompt.WebApi.V1.Controllers.R2Controller.GetImageAsync (AkilliPrompt.WebApi)'
+2024-11-23 12:46:38.286 +03:00 [INF] Route matched with {action = "GetImage", controller = "R"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetImageAsync(System.String) on controller AkilliPrompt.WebApi.V1.Controllers.R2Controller (AkilliPrompt.WebApi).
+2024-11-23 12:46:38.498 +03:00 [INF] Executing FileStreamResult, sending file with download name '' ...
+2024-11-23 12:46:38.502 +03:00 [INF] Executed action AkilliPrompt.WebApi.V1.Controllers.R2Controller.GetImageAsync (AkilliPrompt.WebApi) in 213.8008ms
+2024-11-23 12:46:38.503 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Controllers.R2Controller.GetImageAsync (AkilliPrompt.WebApi)'
+2024-11-23 12:46:38.504 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/api/R/GetImage?key=real-small-head.png - 200 null image/png 222.2057ms
+2024-11-23 12:48:01.088 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 12:48:01.090 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 1.9512ms
+2024-11-23 12:48:01.146 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 12:48:01.149 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.034ms
+2024-11-23 12:48:01.149 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 12:48:01.156 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 6.6135ms
+2024-11-23 12:48:01.302 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 12:48:01.308 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.5386ms
+2024-11-23 13:00:52.111 +03:00 [INF] Starting web application
+2024-11-23 13:00:57.754 +03:00 [INF] Starting web application
+2024-11-23 13:00:59.452 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 13:00:59.455 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 13:00:59.456 +03:00 [INF] Hosting environment: Development
+2024-11-23 13:00:59.456 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi
+2024-11-23 13:01:02.922 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 13:01:02.986 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 65.4207ms
+2024-11-23 13:01:03.093 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 13:01:03.093 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 13:01:03.097 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 3.8144ms
+2024-11-23 13:01:03.098 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 5.2737ms
+2024-11-23 13:01:03.198 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 13:01:03.264 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 65.8551ms
+2024-11-23 13:02:10.741 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5058/api/R/UploadPromptPic?promptId=190319051907 - multipart/form-data; boundary=----WebKitFormBoundaryr1gZGzaTxEkJwNHs 322883
+2024-11-23 13:02:10.748 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-11-23 13:02:10.750 +03:00 [INF] Executing endpoint 'AkilliPrompt.WebApi.V1.Controllers.R2Controller.UploadPromptPicAsync (AkilliPrompt.WebApi)'
+2024-11-23 13:02:10.761 +03:00 [INF] Route matched with {action = "UploadPromptPic", controller = "R"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadPromptPicAsync(Microsoft.AspNetCore.Http.IFormFile, Int64, System.Threading.CancellationToken) on controller AkilliPrompt.WebApi.V1.Controllers.R2Controller (AkilliPrompt.WebApi).
+2024-11-23 13:02:10.926 +03:00 [INF] Executed action AkilliPrompt.WebApi.V1.Controllers.R2Controller.UploadPromptPicAsync (AkilliPrompt.WebApi) in 161.6544ms
+2024-11-23 13:02:10.927 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Controllers.R2Controller.UploadPromptPicAsync (AkilliPrompt.WebApi)'
+2024-11-23 13:02:10.929 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AkilliPrompt.WebApi.Services.R2ObjectStorageManager.UploadPromptPicAsync(IFormFile file, Int64 promptId, CancellationToken cancellationToken) in D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi\Services\R2ObjectStorageManager.cs:line 49
+   at AkilliPrompt.WebApi.V1.Controllers.R2Controller.UploadPromptPicAsync(IFormFile file, Int64 promptId, CancellationToken cancellationToken) in D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi\V1\Controllers\R2Controller.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-11-23 13:02:10.971 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5058/api/R/UploadPromptPic?promptId=190319051907 - 500 null application/problem+json 230.0918ms
+2024-11-23 13:04:08.249 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 13:04:08.256 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 6.5369ms
+2024-11-23 13:04:08.374 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 13:04:08.377 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 2.7361ms
+2024-11-23 13:04:08.394 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 13:04:08.396 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 1.9689ms
+2024-11-23 13:04:08.483 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 13:04:08.490 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.9873ms
+2024-11-23 13:04:23.379 +03:00 [INF] Starting web application
+2024-11-23 13:04:25.802 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 13:04:25.805 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 13:04:25.806 +03:00 [INF] Hosting environment: Development
+2024-11-23 13:04:25.806 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi
+2024-11-23 13:04:44.473 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5058/api/R/UploadPromptPic?promptId=190319051907 - multipart/form-data; boundary=----WebKitFormBoundaryVgLa9dOfqxf2KiMR 322883
+2024-11-23 13:04:44.513 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-11-23 13:04:44.516 +03:00 [INF] Executing endpoint 'AkilliPrompt.WebApi.V1.Controllers.R2Controller.UploadPromptPicAsync (AkilliPrompt.WebApi)'
+2024-11-23 13:04:44.527 +03:00 [INF] Route matched with {action = "UploadPromptPic", controller = "R"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadPromptPicAsync(Microsoft.AspNetCore.Http.IFormFile, Int64, System.Threading.CancellationToken) on controller AkilliPrompt.WebApi.V1.Controllers.R2Controller (AkilliPrompt.WebApi).
+2024-11-23 13:04:45.272 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-11-23 13:04:45.278 +03:00 [INF] Executed action AkilliPrompt.WebApi.V1.Controllers.R2Controller.UploadPromptPicAsync (AkilliPrompt.WebApi) in 747.3301ms
+2024-11-23 13:04:45.285 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Controllers.R2Controller.UploadPromptPicAsync (AkilliPrompt.WebApi)'
+2024-11-23 13:04:45.287 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5058/api/R/UploadPromptPic?promptId=190319051907 - 200 null text/plain; charset=utf-8 815.6984ms
+2024-11-23 13:16:58.330 +03:00 [INF] Application is shutting down...

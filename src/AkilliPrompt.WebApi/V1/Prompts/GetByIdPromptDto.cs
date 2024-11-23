@@ -1,4 +1,4 @@
-namespace AkilliPrompt.WebApi.V1.Models.Prompts;
+namespace AkilliPrompt.WebApi.V1.Prompts;
 
 public sealed record GetByIdPromptDto(
     long Id,
@@ -11,4 +11,4 @@ public sealed record GetByIdPromptDto(
     ICollection<PlaceholderDto> Placeholders);
 
 public sealed record PromptCategoryDto(long Id, string Name);
-public sealed record PlaceholderDto(long Id, string Name); 
+public sealed record PlaceholderDto(long Id, string Name);

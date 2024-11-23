@@ -42,7 +42,7 @@ public static class SwaggerConfiguration
         {
             foreach (ApiVersionDescription description in apiVersionDescriptionProvider.ApiVersionDescriptions)
             {
-                options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", $"Sucrose API {description.GroupName.ToUpperInvariant()}");
+                options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", $"AkilliPrompt API {description.GroupName.ToUpperInvariant()}");
             }
         });
 

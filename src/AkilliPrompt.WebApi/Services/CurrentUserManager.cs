@@ -12,7 +12,10 @@ public sealed class CurrentUserManager : ICurrentUserService
         _httpContextAccessor = httpContextAccessor;
     }
 
-    public long? UserId()
+    // public long? UserId => GetUserId();
+    public long? UserId => 123456;
+
+    private long? GetUserId()
     {
         var userId = _httpContextAccessor.HttpContext?.User.FindFirst("uid")?.Value;
 
