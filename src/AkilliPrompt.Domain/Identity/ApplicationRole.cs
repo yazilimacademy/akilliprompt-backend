@@ -2,7 +2,7 @@
 
 namespace AkilliPrompt.Domain.Identity;
 
-public sealed class ApplicationRole : IdentityRole<long>
+public sealed class ApplicationRole : IdentityRole<Guid>
 {
 
 }

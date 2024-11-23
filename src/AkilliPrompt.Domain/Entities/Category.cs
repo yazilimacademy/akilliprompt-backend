@@ -14,7 +14,7 @@ public sealed class Category : EntityBase
     {
         return new Category
         {
-            Id = TsidCreator.GetTsid().ToLong(),
+            Id = Guid.CreateVersion7(),
             Name = name,
             Description = description,
         };

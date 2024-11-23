@@ -22,7 +22,7 @@ public sealed class Prompt : EntityBase
     {
         return new Prompt
         {
-            Id = TsidCreator.GetTsid().ToLong(),
+            Id = Guid.CreateVersion7(),
             Title = title,
             Description = description,
             Content = content,

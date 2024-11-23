@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace AkilliPrompt.Domain.Identity;
 
-public sealed class ApplicationUser : IdentityUser<long>, ICreatedByEntity, IModifiedByEntity
+public sealed class ApplicationUser : IdentityUser<Guid>, ICreatedByEntity, IModifiedByEntity
 {
     public FullName FullName { get; set; }
 

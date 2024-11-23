@@ -3,11 +3,16 @@ namespace AkilliPrompt.Domain.ValueObjects;
 public sealed record ValidationError
 {
     public string PropertyName { get; init; }
-    public string ErrorMessage { get; init; }
+    public List<string> ErrorMessages { get; init; }
 
-    public ValidationError(string propertyName, string errorMessage)
+    public ValidationError(string propertyName, List<string> errorMessages)
     {
         PropertyName = propertyName;
-        ErrorMessage = errorMessage;
+        ErrorMessages = errorMessages;
+    }
+
+    public ValidationError(string propertyName, string errorMessage)
+        : this(propertyName, new List<string> { errorMessage })
+    {
     }
 }

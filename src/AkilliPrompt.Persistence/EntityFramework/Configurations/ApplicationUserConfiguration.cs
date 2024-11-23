@@ -10,7 +10,6 @@ public sealed class ApplicationUserConfiguration : IEntityTypeConfiguration<Appl
     {
         //Id
         builder.HasKey(x => x.Id);
-        builder.Property(x => x.Id).ValueGeneratedOnAdd();
 
         // Indexes for "normalized" username and email, to allow efficient lookups
         builder.HasIndex(u => u.NormalizedUserName).HasDatabaseName("UserNameIndex").IsUnique();

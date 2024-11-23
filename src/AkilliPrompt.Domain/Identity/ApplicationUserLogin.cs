@@ -2,6 +2,6 @@
 
 namespace AkilliPrompt.Domain.Identity;
 
-public sealed class ApplicationUserLogin : IdentityUserLogin<long>
+public sealed class ApplicationUserLogin : IdentityUserLogin<Guid>
 {
 }

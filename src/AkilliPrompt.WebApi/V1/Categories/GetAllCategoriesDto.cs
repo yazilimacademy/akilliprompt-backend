@@ -2,4 +2,4 @@ using System;
 
 namespace AkilliPrompt.WebApi.V1.Categories;
 
-public sealed record GetAllCategoriesDto(long Id, string Name);
+public sealed record GetAllCategoriesDto(Guid Id, string Name);

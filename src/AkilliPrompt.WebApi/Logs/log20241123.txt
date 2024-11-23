@@ -348,3 +348,433 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 2024-11-23 13:04:45.285 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Controllers.R2Controller.UploadPromptPicAsync (AkilliPrompt.WebApi)'
 2024-11-23 13:04:45.287 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5058/api/R/UploadPromptPic?promptId=190319051907 - 200 null text/plain; charset=utf-8 815.6984ms
 2024-11-23 13:16:58.330 +03:00 [INF] Application is shutting down...
+2024-11-23 14:21:08.847 +03:00 [INF] Starting web application
+2024-11-23 14:21:11.450 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 14:21:11.453 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 14:21:11.454 +03:00 [INF] Hosting environment: Development
+2024-11-23 14:21:11.454 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi
+2024-11-23 14:32:36.753 +03:00 [INF] Application is shutting down...
+2024-11-23 15:45:41.381 +03:00 [INF] Starting web application
+2024-11-23 15:45:44.096 +03:00 [ERR] An error occurred using the connection to database 'AkilliPrompt' on server 'tcp://localhost:1453'.
+2024-11-23 15:45:44.105 +03:00 [ERR] An error occurred using the connection to database 'AkilliPrompt' on server 'tcp://localhost:1453'.
+2024-11-23 15:45:44.214 +03:00 [FTL] Application terminated unexpectedly
+System.InvalidOperationException: An error was generated for warning 'Microsoft.EntityFrameworkCore.Migrations.PendingModelChangesWarning': The model for context 'ApplicationDbContext' has pending changes. Add a new migration before updating the database. This exception can be suppressed or logged by passing event ID 'RelationalEventId.PendingModelChangesWarning' to the 'ConfigureWarnings' method in 'DbContext.OnConfiguring' or 'AddDbContext'.
+   at Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log[TLoggerCategory](IDiagnosticsLogger`1 logger, TParam arg)
+   at Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions.PendingModelChangesWarning(IDiagnosticsLogger`1 diagnostics, Type contextType)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Migrations.Internal.NpgsqlMigrator.Migrate(String targetMigration)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(DatabaseFacade databaseFacade)
+   at AkilliPrompt.WebApi.Extensions.ApplicationBuilderExtensions.ApplyMigrations(IApplicationBuilder app) in D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi\Extensions\ApplicationBuilderExtensions.cs:line 15
+   at Program.<Main>$(String[] args) in D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi\Program.cs:line 66
+2024-11-23 16:17:17.334 +03:00 [INF] Starting web application
+2024-11-23 16:17:20.243 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM __ef_migrations_history
+ORDER BY "MigrationId";
+2024-11-23 16:17:20.289 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-23 16:17:20.344 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 16:17:20.346 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 16:17:20.347 +03:00 [INF] Hosting environment: Development
+2024-11-23 16:17:20.348 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi
+2024-11-23 16:18:15.955 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger - null null
+2024-11-23 16:18:15.995 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger - 301 0 null 40.5538ms
+2024-11-23 16:18:16.006 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:18:16.033 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 26.7462ms
+2024-11-23 16:18:16.092 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:18:16.093 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:18:16.096 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 3.372ms
+2024-11-23 16:18:16.098 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 4.8847ms
+2024-11-23 16:18:16.272 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:18:16.350 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 77.2845ms
+2024-11-23 16:18:27.235 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5058/api/Prompts - application/json 223
+2024-11-23 16:18:27.243 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-11-23 16:18:27.250 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-23 16:18:27.252 +03:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2024-11-23 16:18:27.254 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5058/api/Prompts - 302 0 null 18.6954ms
+2024-11-23 16:18:27.273 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/Account/Login?ReturnUrl=%2Fapi%2FPrompts - null null
+2024-11-23 16:18:27.277 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/Account/Login?ReturnUrl=%2Fapi%2FPrompts - 404 0 null 4.1378ms
+2024-11-23 16:18:27.280 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5058/Account/Login, Response status code: 404
+2024-11-23 16:18:33.763 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5058/api/Prompts - application/json 223
+2024-11-23 16:18:33.767 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-23 16:18:33.768 +03:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2024-11-23 16:18:33.769 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5058/api/Prompts - 302 0 null 5.4454ms
+2024-11-23 16:18:33.774 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/Account/Login?ReturnUrl=%2Fapi%2FPrompts - null null
+2024-11-23 16:18:33.776 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/Account/Login?ReturnUrl=%2Fapi%2FPrompts - 404 0 null 1.7794ms
+2024-11-23 16:18:33.778 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5058/Account/Login, Response status code: 404
+2024-11-23 16:19:16.961 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:19:16.964 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 2.9438ms
+2024-11-23 16:19:17.017 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:19:17.017 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:19:17.020 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 2.2666ms
+2024-11-23 16:19:17.021 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.5929ms
+2024-11-23 16:19:17.181 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:19:17.191 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.4764ms
+2024-11-23 16:19:36.147 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:19:36.149 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 1.9925ms
+2024-11-23 16:19:36.189 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:19:36.190 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:19:36.192 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 2.7631ms
+2024-11-23 16:19:36.193 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.3802ms
+2024-11-23 16:19:36.361 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:19:36.366 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.481ms
+2024-11-23 16:19:41.501 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5058/api/v1/Prompts - application/json 223
+2024-11-23 16:19:41.505 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-23 16:19:41.506 +03:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2024-11-23 16:19:41.506 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5058/api/v1/Prompts - 302 0 null 4.8948ms
+2024-11-23 16:19:41.519 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/Account/Login?ReturnUrl=%2Fapi%2Fv1%2FPrompts - null null
+2024-11-23 16:19:41.522 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/Account/Login?ReturnUrl=%2Fapi%2Fv1%2FPrompts - 404 0 null 2.7109ms
+2024-11-23 16:19:41.525 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5058/Account/Login, Response status code: 404
+2024-11-23 16:20:04.850 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:20:04.853 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 3.5105ms
+2024-11-23 16:20:04.905 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:20:04.906 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:20:04.908 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 3.0312ms
+2024-11-23 16:20:04.909 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.1911ms
+2024-11-23 16:20:05.044 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:20:05.050 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.6518ms
+2024-11-23 16:20:18.435 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/v1/Prompts - null null
+2024-11-23 16:20:18.439 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-23 16:20:18.440 +03:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2024-11-23 16:20:18.441 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/v1/Prompts - 302 0 null 5.3317ms
+2024-11-23 16:20:18.449 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/Account/Login?ReturnUrl=%2Fv1%2FPrompts - null null
+2024-11-23 16:20:18.451 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/Account/Login?ReturnUrl=%2Fv1%2FPrompts - 404 0 null 1.8234ms
+2024-11-23 16:20:18.453 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5058/Account/Login, Response status code: 404
+2024-11-23 16:20:56.599 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:20:56.601 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 2.179ms
+2024-11-23 16:20:56.646 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:20:56.648 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:20:56.649 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 2.724ms
+2024-11-23 16:20:56.650 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.5897ms
+2024-11-23 16:20:56.809 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:20:56.814 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.3006ms
+2024-11-23 16:21:02.222 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:21:02.224 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 2.1296ms
+2024-11-23 16:21:02.291 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:21:02.292 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:21:02.293 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 2.2943ms
+2024-11-23 16:21:02.295 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.1545ms
+2024-11-23 16:21:02.368 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:21:02.374 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.5766ms
+2024-11-23 16:21:22.674 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:21:22.676 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 2.0437ms
+2024-11-23 16:21:22.725 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:21:22.726 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:21:22.728 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 2.7526ms
+2024-11-23 16:21:22.729 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.0365ms
+2024-11-23 16:21:22.786 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:21:22.791 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.2626ms
+2024-11-23 16:21:27.898 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:21:27.900 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 1.9457ms
+2024-11-23 16:21:27.947 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui.css - null null
+2024-11-23 16:21:27.952 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.css - null null
+2024-11-23 16:21:27.955 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-bundle.js - null null
+2024-11-23 16:21:27.956 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-standalone-preset.js - null null
+2024-11-23 16:21:27.956 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:21:27.956 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:21:27.956 +03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-11-23 16:21:27.956 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-11-23 16:21:27.960 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-11-23 16:21:27.961 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-11-23 16:21:27.962 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 6.3403ms
+2024-11-23 16:21:27.965 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 8.1649ms
+2024-11-23 16:21:27.966 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.css - 200 202 text/css 13.586ms
+2024-11-23 16:21:27.967 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui.css - 200 152035 text/css 20.8552ms
+2024-11-23 16:21:27.968 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-standalone-preset.js - 200 230007 text/javascript 12.3582ms
+2024-11-23 16:21:27.969 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-bundle.js - 200 1426001 text/javascript 14.0543ms
+2024-11-23 16:21:28.084 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:21:28.084 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/favicon-32x32.png - null null
+2024-11-23 16:21:28.088 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 3.8564ms
+2024-11-23 16:21:28.088 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-11-23 16:21:28.091 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/favicon-32x32.png - 200 628 image/png 7.3707ms
+2024-11-23 16:21:36.331 +03:00 [INF] Starting web application
+2024-11-23 16:21:38.713 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM __ef_migrations_history
+ORDER BY "MigrationId";
+2024-11-23 16:21:38.750 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-23 16:21:38.785 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 16:21:38.786 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 16:21:38.787 +03:00 [INF] Hosting environment: Development
+2024-11-23 16:21:38.788 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi
+2024-11-23 16:21:50.485 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5058/v1/Prompts - application/json 223
+2024-11-23 16:21:50.533 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-11-23 16:21:50.540 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-23 16:21:50.542 +03:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2024-11-23 16:21:50.545 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5058/v1/Prompts - 302 0 null 60.0695ms
+2024-11-23 16:21:50.553 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/Account/Login?ReturnUrl=%2Fv1%2FPrompts - null null
+2024-11-23 16:21:50.559 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/Account/Login?ReturnUrl=%2Fv1%2FPrompts - 404 0 null 5.6156ms
+2024-11-23 16:21:50.562 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5058/Account/Login, Response status code: 404
+2024-11-23 16:23:16.626 +03:00 [INF] Application is shutting down...
+2024-11-23 16:23:23.463 +03:00 [INF] Starting web application
+2024-11-23 16:23:25.704 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM __ef_migrations_history
+ORDER BY "MigrationId";
+2024-11-23 16:23:25.740 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-23 16:23:25.775 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 16:23:25.777 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 16:23:25.777 +03:00 [INF] Hosting environment: Development
+2024-11-23 16:23:25.778 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi
+2024-11-23 16:23:33.981 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:23:34.043 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 62.9953ms
+2024-11-23 16:23:34.091 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui.css - null null
+2024-11-23 16:23:34.091 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.css - null null
+2024-11-23 16:23:34.091 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-standalone-preset.js - null null
+2024-11-23 16:23:34.091 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:23:34.091 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-bundle.js - null null
+2024-11-23 16:23:34.091 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:23:34.097 +03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-11-23 16:23:34.100 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 8.4889ms
+2024-11-23 16:23:34.100 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-11-23 16:23:34.100 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-11-23 16:23:34.104 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 13.0166ms
+2024-11-23 16:23:34.105 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.css - 200 202 text/css 14.6936ms
+2024-11-23 16:23:34.106 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-11-23 16:23:34.110 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-standalone-preset.js - 200 230007 text/javascript 18.8241ms
+2024-11-23 16:23:34.110 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui.css - 200 152035 text/css 19.7789ms
+2024-11-23 16:23:34.117 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-bundle.js - 200 1426001 text/javascript 25.6584ms
+2024-11-23 16:23:34.299 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:23:34.304 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/favicon-32x32.png - null null
+2024-11-23 16:23:34.307 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-11-23 16:23:34.308 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/favicon-32x32.png - 200 628 image/png 4.0266ms
+2024-11-23 16:23:34.360 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 60.8074ms
+2024-11-23 16:23:50.265 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:23:50.268 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 2.4094ms
+2024-11-23 16:23:50.325 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:23:50.326 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:23:50.330 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 4.4734ms
+2024-11-23 16:23:50.331 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 5.4467ms
+2024-11-23 16:23:50.439 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:23:50.447 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.4846ms
+2024-11-23 16:23:54.719 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/v1/Prompts - null null
+2024-11-23 16:23:54.728 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-11-23 16:23:54.735 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-23 16:23:54.737 +03:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2024-11-23 16:23:54.738 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/v1/Prompts - 302 0 null 19.4282ms
+2024-11-23 16:23:54.762 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/Account/Login?ReturnUrl=%2Fv1%2FPrompts - null null
+2024-11-23 16:23:54.765 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/Account/Login?ReturnUrl=%2Fv1%2FPrompts - 404 0 null 3.3371ms
+2024-11-23 16:23:54.768 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5058/Account/Login, Response status code: 404
+2024-11-23 16:24:12.042 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:24:12.044 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 2.4871ms
+2024-11-23 16:24:12.127 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:24:12.128 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:24:12.130 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.6139ms
+2024-11-23 16:24:12.133 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 4.7621ms
+2024-11-23 16:24:12.256 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:24:12.262 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.772ms
+2024-11-23 16:24:23.648 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:24:23.652 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 3.7829ms
+2024-11-23 16:24:23.732 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:24:23.735 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:24:23.737 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 5.2542ms
+2024-11-23 16:24:23.739 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 4.6128ms
+2024-11-23 16:24:23.963 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:24:23.970 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.6695ms
+2024-11-23 16:24:36.387 +03:00 [INF] Starting web application
+2024-11-23 16:24:38.498 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM __ef_migrations_history
+ORDER BY "MigrationId";
+2024-11-23 16:24:38.537 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-23 16:24:38.577 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 16:24:38.579 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 16:24:38.579 +03:00 [INF] Hosting environment: Development
+2024-11-23 16:24:38.580 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi
+2024-11-23 16:24:43.586 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/v1/Prompts - null null
+2024-11-23 16:24:43.644 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-11-23 16:24:43.650 +03:00 [INF] Executing endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.GetAllAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:24:43.661 +03:00 [INF] Route matched with {action = "GetAll", controller = "Prompts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(System.Threading.CancellationToken) on controller AkilliPrompt.WebApi.V1.Prompts.PromptsController (AkilliPrompt.WebApi).
+2024-11-23 16:24:43.725 +03:00 [INF] Executed action AkilliPrompt.WebApi.V1.Prompts.PromptsController.GetAllAsync (AkilliPrompt.WebApi) in 61.1048ms
+2024-11-23 16:24:43.729 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.GetAllAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:24:43.730 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'FluentValidation.IValidator`1[AkilliPrompt.WebApi.V1.Prompts.UpdatePromptDto]' while attempting to activate 'AkilliPrompt.WebApi.V1.Prompts.PromptsController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method98(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-11-23 16:24:43.762 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/v1/Prompts - 500 null application/problem+json 177.0984ms
+2024-11-23 16:25:03.859 +03:00 [INF] Application is shutting down...
+2024-11-23 16:25:21.077 +03:00 [INF] Starting web application
+2024-11-23 16:25:23.181 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM __ef_migrations_history
+ORDER BY "MigrationId";
+2024-11-23 16:25:23.217 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-23 16:25:23.254 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 16:25:23.256 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 16:25:23.257 +03:00 [INF] Hosting environment: Development
+2024-11-23 16:25:23.257 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi
+2024-11-23 16:25:25.527 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/v1/Prompts - null null
+2024-11-23 16:25:25.571 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-11-23 16:25:25.577 +03:00 [INF] Executing endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.GetAllAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:25:25.588 +03:00 [INF] Route matched with {action = "GetAll", controller = "Prompts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(System.Threading.CancellationToken) on controller AkilliPrompt.WebApi.V1.Prompts.PromptsController (AkilliPrompt.WebApi).
+2024-11-23 16:25:25.817 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT p.id, p.title, p.description, p.image_url, p.is_active
+FROM prompts AS p
+2024-11-23 16:25:25.827 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[AkilliPrompt.WebApi.V1.Prompts.GetAllPromptsDto, AkilliPrompt.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-23 16:25:25.844 +03:00 [INF] Executed action AkilliPrompt.WebApi.V1.Prompts.PromptsController.GetAllAsync (AkilliPrompt.WebApi) in 252.1463ms
+2024-11-23 16:25:25.848 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.GetAllAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:25:25.853 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/v1/Prompts - 200 null application/json; charset=utf-8 326.5275ms
+2024-11-23 16:25:33.737 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5058/v1/Prompts - application/json 223
+2024-11-23 16:25:33.741 +03:00 [INF] Executing endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:25:33.744 +03:00 [INF] Route matched with {action = "Create", controller = "Prompts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateAsync(AkilliPrompt.WebApi.V1.Prompts.CreatePromptDto, System.Threading.CancellationToken) on controller AkilliPrompt.WebApi.V1.Prompts.PromptsController (AkilliPrompt.WebApi).
+2024-11-23 16:25:33.760 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-11-23 16:25:33.770 +03:00 [INF] Executed action AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi) in 24.0861ms
+2024-11-23 16:25:33.771 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:25:33.772 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5058/v1/Prompts - 400 null application/problem+json; charset=utf-8 35.2785ms
+2024-11-23 16:27:24.122 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5058/v1/Prompts - application/json 223
+2024-11-23 16:27:24.126 +03:00 [INF] Executing endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:27:24.130 +03:00 [INF] Route matched with {action = "Create", controller = "Prompts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateAsync(AkilliPrompt.WebApi.V1.Prompts.CreatePromptDto, System.Threading.CancellationToken) on controller AkilliPrompt.WebApi.V1.Prompts.PromptsController (AkilliPrompt.WebApi).
+2024-11-23 16:27:24.134 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-11-23 16:27:24.137 +03:00 [INF] Executed action AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi) in 5.3625ms
+2024-11-23 16:27:24.138 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:27:24.138 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5058/v1/Prompts - 400 null application/problem+json; charset=utf-8 16.6501ms
+2024-11-23 16:27:27.286 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5058/v1/Prompts - application/json 223
+2024-11-23 16:27:27.289 +03:00 [INF] Executing endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:27:27.290 +03:00 [INF] Route matched with {action = "Create", controller = "Prompts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateAsync(AkilliPrompt.WebApi.V1.Prompts.CreatePromptDto, System.Threading.CancellationToken) on controller AkilliPrompt.WebApi.V1.Prompts.PromptsController (AkilliPrompt.WebApi).
+2024-11-23 16:27:27.292 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-11-23 16:27:27.293 +03:00 [INF] Executed action AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi) in 2.137ms
+2024-11-23 16:27:27.295 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:27:27.296 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5058/v1/Prompts - 400 null application/problem+json; charset=utf-8 9.528ms
+2024-11-23 16:27:32.695 +03:00 [INF] Application is shutting down...
+2024-11-23 16:27:37.996 +03:00 [INF] Starting web application
+2024-11-23 16:27:40.109 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM __ef_migrations_history
+ORDER BY "MigrationId";
+2024-11-23 16:27:40.147 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-23 16:27:40.181 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 16:27:40.183 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 16:27:40.183 +03:00 [INF] Hosting environment: Development
+2024-11-23 16:27:40.184 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi
+2024-11-23 16:27:40.872 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:27:40.934 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 63.3752ms
+2024-11-23 16:27:40.976 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.css - null null
+2024-11-23 16:27:40.976 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui.css - null null
+2024-11-23 16:27:40.978 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:27:40.978 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-standalone-preset.js - null null
+2024-11-23 16:27:40.978 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:27:40.978 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-bundle.js - null null
+2024-11-23 16:27:40.982 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 4.5097ms
+2024-11-23 16:27:40.983 +03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-11-23 16:27:40.985 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-11-23 16:27:40.986 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-11-23 16:27:40.988 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 9.9425ms
+2024-11-23 16:27:40.992 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-11-23 16:27:40.993 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.css - 200 202 text/css 16.6314ms
+2024-11-23 16:27:40.995 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui.css - 200 152035 text/css 18.6924ms
+2024-11-23 16:27:40.995 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-standalone-preset.js - 200 230007 text/javascript 17.4095ms
+2024-11-23 16:27:40.999 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/swagger-ui-bundle.js - 200 1426001 text/javascript 21.1656ms
+2024-11-23 16:27:41.175 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:27:41.175 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/favicon-32x32.png - null null
+2024-11-23 16:27:41.179 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-11-23 16:27:41.180 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/favicon-32x32.png - 200 628 image/png 4.1159ms
+2024-11-23 16:27:41.241 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 65.8801ms
+2024-11-23 16:27:48.260 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5058/v1/Prompts - application/json 223
+2024-11-23 16:27:48.269 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-11-23 16:27:48.275 +03:00 [INF] Executing endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:27:48.286 +03:00 [INF] Route matched with {action = "Create", controller = "Prompts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateAsync(AkilliPrompt.WebApi.V1.Prompts.CreatePromptDto, System.Threading.CancellationToken) on controller AkilliPrompt.WebApi.V1.Prompts.PromptsController (AkilliPrompt.WebApi).
+2024-11-23 16:27:48.353 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'AkilliPrompt.WebApi.Models.ResponseDto`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-23 16:27:48.360 +03:00 [INF] Executed action AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi) in 70.4306ms
+2024-11-23 16:27:48.360 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:27:48.362 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5058/v1/Prompts - 400 null application/json; charset=utf-8 101.2284ms
+2024-11-23 16:30:42.100 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:30:42.103 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 2.2087ms
+2024-11-23 16:30:42.196 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:30:42.199 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 2.5748ms
+2024-11-23 16:30:42.208 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:30:42.210 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.3675ms
+2024-11-23 16:30:42.354 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:30:42.368 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.6808ms
+2024-11-23 16:30:46.110 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.html - null null
+2024-11-23 16:30:46.112 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.html - 200 null text/html;charset=utf-8 2.2243ms
+2024-11-23 16:30:46.149 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/index.js - null null
+2024-11-23 16:30:46.152 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-23 16:30:46.152 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/index.js - 200 null application/javascript;charset=utf-8 2.7003ms
+2024-11-23 16:30:46.154 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.1184ms
+2024-11-23 16:30:46.235 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - null null
+2024-11-23 16:30:46.243 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5058/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.5002ms
+2024-11-23 16:30:53.190 +03:00 [INF] Starting web application
+2024-11-23 16:30:55.255 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM __ef_migrations_history
+ORDER BY "MigrationId";
+2024-11-23 16:30:55.293 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-23 16:30:55.333 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 16:30:55.335 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 16:30:55.336 +03:00 [INF] Hosting environment: Development
+2024-11-23 16:30:55.337 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi
+2024-11-23 16:31:03.239 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5058/v1/Prompts - multipart/form-data; boundary=----WebKitFormBoundaryDBzUX2UDtBpXEXVx 780
+2024-11-23 16:31:03.305 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-11-23 16:31:03.311 +03:00 [INF] Executing endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:31:03.325 +03:00 [INF] Route matched with {action = "Create", controller = "Prompts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateAsync(AkilliPrompt.WebApi.V1.Prompts.CreatePromptDto, System.Threading.CancellationToken) on controller AkilliPrompt.WebApi.V1.Prompts.PromptsController (AkilliPrompt.WebApi).
+2024-11-23 16:31:03.422 +03:00 [INF] Executed action AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi) in 93.5233ms
+2024-11-23 16:31:03.425 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:31:03.427 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+FluentValidation.AsyncValidatorInvokedSynchronouslyException: Validator "CreatePromptDtoValidator" can't be used with ASP.NET automatic validation as it contains asynchronous rules. ASP.NET's validation pipeline is not asynchronous and can't invoke asynchronous rules. Remove the asynchronous rules in order for this validator to run.
+   at FluentValidation.AbstractValidator`1.Validate(ValidationContext`1 context) in /_/src/FluentValidation/AbstractValidator.cs:line 207
+   at FluentValidation.AbstractValidator`1.FluentValidation.IValidator.Validate(IValidationContext context) in /_/src/FluentValidation/AbstractValidator.cs:line 153
+   at FluentValidation.AspNetCore.FluentValidationModelValidator.Validate(ModelValidationContext mvContext) in /_/src/FluentValidation.AspNetCore/FluentValidationModelValidatorProvider.cs:line 146
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.ValidateNode()
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.VisitComplexType(IValidationStrategy defaultStrategy)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.VisitImplementation(ModelMetadata& metadata, String& key, Object model)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.Visit(ModelMetadata metadata, String key, Object model)
+   at FluentValidation.AspNetCore.FluentValidationVisitor.<>n__1(ModelMetadata metadata, String key, Object model, Boolean alwaysValidateAtTopLevel, Object container)
+   at FluentValidation.AspNetCore.FluentValidationVisitor.<>c__DisplayClass2_0.<Validate>g__BaseValidate|0() in /_/src/FluentValidation.AspNetCore/FluentValidationVisitor.cs:line 45
+   at FluentValidation.AspNetCore.FluentValidationVisitor.ValidateInternal(ModelMetadata metadata, String key, Object model, Func`1 continuation) in /_/src/FluentValidation.AspNetCore/FluentValidationVisitor.cs:line 63
+   at FluentValidation.AspNetCore.FluentValidationVisitor.Validate(ModelMetadata metadata, String key, Object model, Boolean alwaysValidateAtTopLevel, Object container) in /_/src/FluentValidation.AspNetCore/FluentValidationVisitor.cs:line 47
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ObjectModelValidator.Validate(ActionContext actionContext, ValidationStateDictionary validationState, String prefix, Object model, ModelMetadata metadata, Object container)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.EnforceBindRequiredAndValidate(ObjectModelValidator baseObjectValidator, ActionContext actionContext, ParameterDescriptor parameter, ModelMetadata metadata, ModelBindingContext modelBindingContext, ModelBindingResult modelBindingResult, Object container)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-11-23 16:31:03.465 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5058/v1/Prompts - 500 null application/problem+json 227.2654ms
+2024-11-23 16:32:51.654 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5058/v1/Prompts - multipart/form-data; boundary=----WebKitFormBoundaryhlzJWc0hJrv6Ho3l 780
+2024-11-23 16:32:51.658 +03:00 [INF] Executing endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:32:51.663 +03:00 [INF] Route matched with {action = "Create", controller = "Prompts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateAsync(AkilliPrompt.WebApi.V1.Prompts.CreatePromptDto, System.Threading.CancellationToken) on controller AkilliPrompt.WebApi.V1.Prompts.PromptsController (AkilliPrompt.WebApi).
+2024-11-23 16:32:51.872 +03:00 [INF] Executed DbCommand (35ms) [Parameters=[@__categoryIds_0='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM categories AS c
+    WHERE c.id = ANY (@__categoryIds_0))
+2024-11-23 16:32:51.890 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'AkilliPrompt.WebApi.Models.ResponseDto`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-23 16:32:51.896 +03:00 [INF] Executed action AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi) in 230.6833ms
+2024-11-23 16:32:51.898 +03:00 [INF] Executed endpoint 'AkilliPrompt.WebApi.V1.Prompts.PromptsController.CreateAsync (AkilliPrompt.WebApi)'
+2024-11-23 16:32:51.901 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5058/v1/Prompts - 400 null application/json; charset=utf-8 247.1895ms
+2024-11-23 16:34:45.411 +03:00 [INF] Starting web application
+2024-11-23 16:34:47.427 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM __ef_migrations_history
+ORDER BY "MigrationId";
+2024-11-23 16:34:47.464 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-23 16:34:47.498 +03:00 [INF] Now listening on: http://localhost:5058
+2024-11-23 16:34:47.499 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-23 16:34:47.500 +03:00 [INF] Hosting environment: Development
+2024-11-23 16:34:47.500 +03:00 [INF] Content root path: D:\NETRepos\AkilliPrompt\src\AkilliPrompt.WebApi

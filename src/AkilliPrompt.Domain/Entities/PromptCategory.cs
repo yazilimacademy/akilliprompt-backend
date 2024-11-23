@@ -5,17 +5,17 @@ namespace AkilliPrompt.Domain.Entities;
 
 public sealed class PromptCategory : EntityBase
 {
-    public long PromptId { get; set; }
+    public Guid PromptId { get; set; }
     public Prompt Prompt { get; set; }
 
-    public long CategoryId { get; set; }
+    public Guid CategoryId { get; set; }
     public Category Category { get; set; }
 
-    public static PromptCategory Create(long promptId, long categoryId)
+    public static PromptCategory Create(Guid promptId, Guid categoryId)
     {
         return new PromptCategory
         {
-            Id = TsidCreator.GetTsid().ToLong(),
+            Id = Guid.CreateVersion7(),
             PromptId = promptId,
             CategoryId = categoryId,
         };

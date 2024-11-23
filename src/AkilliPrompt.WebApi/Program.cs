@@ -3,6 +3,9 @@ using AkilliPrompt.WebApi;
 using AkilliPrompt.Persistence;
 using Serilog;
 using AkilliPrompt.WebApi.Configuration;
+using AkilliPrompt.WebApi.Filters;
+using AkilliPrompt.WebApi.Extensions;
+using Microsoft.AspNetCore.Mvc;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
@@ -29,8 +32,20 @@ try
 
     builder.Services.AddPersistence(builder.Configuration);
     builder.Services.AddWebApi(builder.Configuration);
+    builder.Services.AddFluentValidation();
 
-    builder.Services.AddControllers();
+    // Suppress model state validation suppression
+    builder.Services.Configure<ApiBehaviorOptions>(options =>
+    {
+        options.SuppressModelStateInvalidFilter = true;
+    });
+
+    builder.Services.AddControllers(options =>
+    {
+        options.Filters.Add<ValidationFilter>();
+    });
+
+
     // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
     builder.Services.AddOpenApi();
 
@@ -57,6 +72,8 @@ try
     app.UseAuthorization();
 
     app.MapControllers();
+
+    app.ApplyMigrations();
 
     app.Run();
 }
