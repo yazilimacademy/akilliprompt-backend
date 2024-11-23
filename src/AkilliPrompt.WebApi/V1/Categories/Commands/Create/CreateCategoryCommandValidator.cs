@@ -2,7 +2,7 @@ using AkilliPrompt.Persistence.EntityFramework.Contexts;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
-namespace AkilliPrompt.WebApi.V1.Categories.Create;
+namespace AkilliPrompt.WebApi.V1.Categories.Commands.Create;
 
 public sealed class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
 {

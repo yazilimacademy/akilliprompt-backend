@@ -6,7 +6,7 @@ using AkilliPrompt.WebApi.Helpers;
 using AkilliPrompt.WebApi.Models;
 using MediatR;
 
-namespace AkilliPrompt.WebApi.V1.Categories.Create;
+namespace AkilliPrompt.WebApi.V1.Categories.Commands.Create;
 
 public sealed class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, ResponseDto<Guid>>
 {
