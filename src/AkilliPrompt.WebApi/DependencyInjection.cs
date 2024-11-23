@@ -6,9 +6,7 @@ using AkilliPrompt.Persistence.Services;
 using AkilliPrompt.WebApi.Behaviors;
 using AkilliPrompt.WebApi.Configuration;
 using AkilliPrompt.WebApi.Services;
-using AkilliPrompt.WebApi.V1.Prompts;
 using FluentValidation;
-using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
@@ -62,7 +60,21 @@ public static class DependencyInjection
             config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
 
             config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
+            config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
+
         });
+
+        // Configure Dragonfly as the caching provider
+        services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = configuration.GetConnectionString("Dragonfly");
+            options.InstanceName = "AkilliPrompt_"; // Optional: Use a specific instance name
+                                                    // Add any Dragonfly-specific configurations here
+                                                    // For example, if Dragonfly supports specific features or optimizations, configure them here
+        });
+
+        services.AddScoped<ICacheInvalidator, CacheInvalidator>();
 
         return services;
     }
