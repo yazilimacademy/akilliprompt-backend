@@ -2,8 +2,8 @@ using AkilliPrompt.Domain.Entities;
 using AkilliPrompt.Persistence.EntityFramework.Contexts;
 using AkilliPrompt.WebApi.Helpers;
 using AkilliPrompt.WebApi.Models;
+using AkilliPrompt.WebApi.V1.Categories.Create;
 using Asp.Versioning;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
@@ -11,10 +11,9 @@ using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace AkilliPrompt.WebApi.V1.Categories;
 
-[Route("api/[controller]")]
 [ApiController]
-[Authorize]
 [ApiVersion("1.0")]
+[Route("v{version:apiVersion}/[controller]")]
 public sealed class CategoriesController : ControllerBase
 {
     private readonly string _allCategoriesCacheKey = "all-categories";
@@ -55,8 +54,8 @@ public sealed class CategoriesController : ControllerBase
         return Ok(categories);
     }
 
-    [HttpGet("{id:long}")]
-    public async Task<IActionResult> GetByIdAsync(long id, CancellationToken cancellationToken)
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
         var cacheKey = $"{_categoryKeyCachePrefix}{id}";
 
@@ -88,11 +87,11 @@ public sealed class CategoriesController : ControllerBase
 
         InvalidateCache();
 
-        return Ok(ResponseDto<long>.Success(category.Id, MessageHelper.GetApiSuccessCreatedMessage("Kategori")));
+        return Ok(ResponseDto<Guid>.Success(category.Id, MessageHelper.GetApiSuccessCreatedMessage("Kategori")));
     }
 
-    [HttpPut("{id:long}")]
-    public async Task<IActionResult> UpdateAsync(long id, UpdateCategoryDto dto, CancellationToken cancellationToken)
+    [HttpPut("{id:guid}")]
+    public async Task<IActionResult> UpdateAsync(Guid id, UpdateCategoryDto dto, CancellationToken cancellationToken)
     {
         if (dto.Id != id)
             return BadRequest();
@@ -114,8 +113,8 @@ public sealed class CategoriesController : ControllerBase
         return Ok(ResponseDto<long>.Success(MessageHelper.GetApiSuccessUpdatedMessage("Kategori")));
     }
 
-    [HttpDelete("{id:long}")]
-    public async Task<IActionResult> DeleteAsync(long id, CancellationToken cancellationToken)
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
     {
         var result = await _dbContext
             .Categories
@@ -130,7 +129,7 @@ public sealed class CategoriesController : ControllerBase
         return Ok(ResponseDto<long>.Success(MessageHelper.GetApiSuccessDeletedMessage("Kategori")));
     }
 
-    private void InvalidateCache(long? categoryId = null)
+    private void InvalidateCache(Guid? categoryId = null)
     {
         _memoryCache.Remove(_allCategoriesCacheKey);
 

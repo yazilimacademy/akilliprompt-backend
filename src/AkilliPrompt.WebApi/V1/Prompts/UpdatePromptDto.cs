@@ -1,11 +1,11 @@
 namespace AkilliPrompt.WebApi.V1.Prompts;
 
 public sealed record UpdatePromptDto(
-    long Id,
+    Guid Id,
     string Title,
     string Description,
     string Content,
-    string? ImageUrl,
+    IFormFile? Image,
     bool IsActive,
-    ICollection<long> CategoryIds,
+    ICollection<Guid> CategoryIds,
     ICollection<string> PlaceholderNames);

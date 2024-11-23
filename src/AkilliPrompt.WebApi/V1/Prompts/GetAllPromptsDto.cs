@@ -1,7 +1,7 @@
 namespace AkilliPrompt.WebApi.V1.Prompts;
 
 public sealed record GetAllPromptsDto(
-    long Id,
+    Guid Id,
     string Title,
     string Description,
     string? ImageUrl,

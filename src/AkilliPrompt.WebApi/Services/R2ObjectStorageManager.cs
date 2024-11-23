@@ -6,6 +6,7 @@ using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
 using Microsoft.Extensions.Options;
+using TSID.Creator.NET;
 
 namespace AkilliPrompt.WebApi.Services;
 
@@ -38,7 +39,7 @@ public sealed class R2ObjectStorageManager
     {
         var fileExtension = Path.GetExtension(file.FileName);
 
-        var key = $"{promptId}-{Ulid.NewUlid()}{fileExtension}";
+        var key = $"{TsidCreator.GetTsid()}{fileExtension}";
 
         var request = new PutObjectRequest
         {
@@ -63,7 +64,7 @@ public sealed class R2ObjectStorageManager
     {
         var fileExtension = Path.GetExtension(file.FileName);
 
-        var key = $"{_currentUserService.UserId}-{Ulid.NewUlid()}{fileExtension}";
+        var key = $"{TsidCreator.GetTsid()}{fileExtension}";
 
         var request = new PutObjectRequest
         {

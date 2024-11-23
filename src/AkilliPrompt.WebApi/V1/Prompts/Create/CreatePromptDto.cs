@@ -1,4 +1,4 @@
-namespace AkilliPrompt.WebApi.V1.Prompts;
+namespace AkilliPrompt.WebApi.V1.Prompts.Create;
 
 public sealed record CreatePromptDto(
     string Title,
@@ -6,6 +6,6 @@ public sealed record CreatePromptDto(
     string Content,
     IFormFile? Image,
     bool IsActive,
-    List<long> CategoryIds,
+    List<Guid> CategoryIds,
     List<string>? PlaceholderNames = null
 );

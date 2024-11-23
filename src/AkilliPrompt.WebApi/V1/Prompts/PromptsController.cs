@@ -4,7 +4,9 @@ using AkilliPrompt.Persistence.EntityFramework.Contexts;
 using AkilliPrompt.WebApi.Helpers;
 using AkilliPrompt.WebApi.Models;
 using AkilliPrompt.WebApi.Services;
+using AkilliPrompt.WebApi.V1.Prompts.Create;
 using Asp.Versioning;
+using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +14,9 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace AkilliPrompt.WebApi.V1.Prompts;
 
-[Route("api/[controller]")]
 [ApiController]
-[Authorize]
 [ApiVersion("1.0")]
+[Route("v{version:apiVersion}/[controller]")]
 public sealed class PromptsController : ControllerBase
 {
     private readonly string _allPromptsCacheKey = "all-prompts";
@@ -24,7 +25,6 @@ public sealed class PromptsController : ControllerBase
     private readonly IMemoryCache _memoryCache;
     private readonly ApplicationDbContext _dbContext;
     private readonly R2ObjectStorageManager _r2ObjectStorageManager;
-
     public PromptsController(
         IMemoryCache memoryCache,
         ApplicationDbContext dbContext,
@@ -42,6 +42,7 @@ public sealed class PromptsController : ControllerBase
     }
 
     [HttpGet]
+    [MapToApiVersion("1.0")]
     public async Task<IActionResult> GetAllAsync(CancellationToken cancellationToken)
     {
         if (_memoryCache.TryGetValue(_allPromptsCacheKey, out List<GetAllPromptsDto> cachedPrompts))
@@ -63,8 +64,9 @@ public sealed class PromptsController : ControllerBase
         return Ok(prompts);
     }
 
-    [HttpGet("{id:long}")]
-    public async Task<IActionResult> GetByIdAsync(long id, CancellationToken cancellationToken)
+    [HttpGet("{id:guid}")]
+    [MapToApiVersion("1.0")]
+    public async Task<IActionResult> GetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
         var cacheKey = $"{_promptKeyCachePrefix}{id}";
 
@@ -98,7 +100,9 @@ public sealed class PromptsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateAsync(CreatePromptDto dto, CancellationToken cancellationToken)
+    [MapToApiVersion("1.0")]
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> CreateAsync([FromForm] CreatePromptDto dto, CancellationToken cancellationToken)
     {
         string? imageUrl = null;
 
@@ -115,16 +119,10 @@ public sealed class PromptsController : ControllerBase
 
             _dbContext.Prompts.Add(prompt);
 
-            if (dto.CategoryIds is not null && dto.CategoryIds.Any())
-            {
-                if (!await _dbContext.Categories.Where(c => dto.CategoryIds.Contains(c.Id)).AnyAsync(cancellationToken))
-                    return BadRequest(ResponseDto<long>.Error(MessageHelper.GeneralValidationErrorMessage, new ValidationError(nameof(dto.CategoryIds), "Secili kategori bulunamadı.")));
+            var promptCategories = dto.CategoryIds
+                .Select(categoryId => PromptCategory.Create(prompt.Id, categoryId));
 
-                var promptCategories = dto.CategoryIds
-                    .Select(categoryId => PromptCategory.Create(prompt.Id, categoryId));
-
-                _dbContext.PromptCategories.AddRange(promptCategories);
-            }
+            _dbContext.PromptCategories.AddRange(promptCategories);
 
             if (dto.PlaceholderNames is not null && dto.PlaceholderNames.Any())
             {
@@ -138,7 +136,7 @@ public sealed class PromptsController : ControllerBase
 
             InvalidateCache();
 
-            return Ok(ResponseDto<long>.Success(prompt.Id, MessageHelper.GetApiSuccessCreatedMessage("Prompt")));
+            return Ok(ResponseDto<Guid>.Success(prompt.Id, MessageHelper.GetApiSuccessCreatedMessage("Prompt")));
         }
         catch (Exception ex)
         {
@@ -149,9 +147,10 @@ public sealed class PromptsController : ControllerBase
         }
     }
 
-    [HttpPut("{id:long}")]
-    public async Task<IActionResult> UpdateAsync(long id, UpdatePromptDto dto, CancellationToken cancellationToken)
+    [HttpPut("{id:guid}")]
+    public async Task<IActionResult> UpdateAsync(Guid id, UpdatePromptDto dto, CancellationToken cancellationToken)
     {
+
         if (dto.Id != id)
             return BadRequest();
 
@@ -188,11 +187,11 @@ public sealed class PromptsController : ControllerBase
 
         InvalidateCache(id);
 
-        return Ok(ResponseDto<long>.Success(MessageHelper.GetApiSuccessUpdatedMessage("Prompt")));
+        return Ok(ResponseDto<Guid>.Success(MessageHelper.GetApiSuccessUpdatedMessage("Prompt")));
     }
 
-    [HttpDelete("{id:long}")]
-    public async Task<IActionResult> DeleteAsync(long id, CancellationToken cancellationToken)
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
     {
         var result = await _dbContext
             .Prompts
@@ -207,7 +206,7 @@ public sealed class PromptsController : ControllerBase
         return Ok(ResponseDto<long>.Success(MessageHelper.GetApiSuccessDeletedMessage("Prompt")));
     }
 
-    private void InvalidateCache(long? promptId = null)
+    private void InvalidateCache(Guid? promptId = null)
     {
         _memoryCache.Remove(_allPromptsCacheKey);
 

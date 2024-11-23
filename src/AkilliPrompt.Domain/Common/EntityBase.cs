@@ -2,7 +2,7 @@ namespace AkilliPrompt.Domain.Common;
 
 public abstract class EntityBase : ICreatedByEntity, IModifiedByEntity
 {
-    public long Id { get; set; }
+    public Guid Id { get; set; }
 
     public string? CreatedByUserId { get; set; }
     public DateTimeOffset CreatedAt { get; set; }
