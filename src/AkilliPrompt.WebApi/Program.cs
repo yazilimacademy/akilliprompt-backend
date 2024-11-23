@@ -3,7 +3,6 @@ using AkilliPrompt.WebApi;
 using AkilliPrompt.Persistence;
 using Serilog;
 using AkilliPrompt.WebApi.Configuration;
-using AkilliPrompt.WebApi.Filters;
 using AkilliPrompt.WebApi.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,17 +21,19 @@ try
 
     // Add services to the container.
 
-    builder.Configuration.AddAzureKeyVault(
-        new Uri(builder.Configuration["AzureKeyVaultSettings:Uri"]),
-        new ClientSecretCredential(
-            tenantId: builder.Configuration["AzureKeyVaultSettings:TenantId"],
-            clientId: builder.Configuration["AzureKeyVaultSettings:ClientId"],
-            clientSecret: builder.Configuration["AzureKeyVaultSettings:ClientSecret"]
-        ));
+    if (!builder.Environment.IsDevelopment())
+    {
+        builder.Configuration.AddAzureKeyVault(
+       new Uri(builder.Configuration["AzureKeyVaultSettings:Uri"]),
+       new ClientSecretCredential(
+           tenantId: builder.Configuration["AzureKeyVaultSettings:TenantId"],
+           clientId: builder.Configuration["AzureKeyVaultSettings:ClientId"],
+           clientSecret: builder.Configuration["AzureKeyVaultSettings:ClientSecret"]
+       ));
+    }
 
     builder.Services.AddPersistence(builder.Configuration);
     builder.Services.AddWebApi(builder.Configuration);
-    builder.Services.AddFluentValidation();
 
     // Suppress model state validation suppression
     builder.Services.Configure<ApiBehaviorOptions>(options =>
@@ -40,10 +41,7 @@ try
         options.SuppressModelStateInvalidFilter = true;
     });
 
-    builder.Services.AddControllers(options =>
-    {
-        options.Filters.Add<ValidationFilter>();
-    });
+    builder.Services.AddControllers();
 
 
     // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

@@ -36,6 +36,6 @@ public sealed class CreateCategoryCommandValidator : AbstractValidator<CreateCat
     {
         return !await _dbContext
         .Categories
-        .AnyAsync(x => string.Equals(x.Name, name, StringComparison.OrdinalIgnoreCase), cancellationToken);
+        .AnyAsync(x => x.Name.ToLower() == name.ToLower(), cancellationToken);
     }
 }

@@ -1,5 +1,4 @@
 using AkilliPrompt.Persistence.EntityFramework.Contexts;
-using AkilliPrompt.WebApi.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
