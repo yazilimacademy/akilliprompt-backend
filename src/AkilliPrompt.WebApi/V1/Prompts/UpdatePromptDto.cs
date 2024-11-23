@@ -1,4 +1,4 @@
-namespace AkilliPrompt.WebApi.V1.Models.Prompts;
+namespace AkilliPrompt.WebApi.V1.Prompts;
 
 public sealed record UpdatePromptDto(
     long Id,
@@ -8,4 +8,4 @@ public sealed record UpdatePromptDto(
     string? ImageUrl,
     bool IsActive,
     ICollection<long> CategoryIds,
-    ICollection<string> PlaceholderNames); 
+    ICollection<string> PlaceholderNames);

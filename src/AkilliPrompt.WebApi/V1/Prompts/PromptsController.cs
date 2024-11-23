@@ -3,14 +3,14 @@ using AkilliPrompt.Domain.ValueObjects;
 using AkilliPrompt.Persistence.EntityFramework.Contexts;
 using AkilliPrompt.WebApi.Helpers;
 using AkilliPrompt.WebApi.Models;
-using AkilliPrompt.WebApi.V1.Models.Prompts;
+using AkilliPrompt.WebApi.Services;
 using Asp.Versioning;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace AkilliPrompt.WebApi.V1.Controllers;
+namespace AkilliPrompt.WebApi.V1.Prompts;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -23,14 +23,16 @@ public sealed class PromptsController : ControllerBase
     private readonly MemoryCacheEntryOptions _cacheOptions;
     private readonly IMemoryCache _memoryCache;
     private readonly ApplicationDbContext _dbContext;
+    private readonly R2ObjectStorageManager _r2ObjectStorageManager;
 
     public PromptsController(
         IMemoryCache memoryCache,
-        ApplicationDbContext dbContext)
+        ApplicationDbContext dbContext,
+        R2ObjectStorageManager r2ObjectStorageManager)
     {
         _memoryCache = memoryCache;
         _dbContext = dbContext;
-
+        _r2ObjectStorageManager = r2ObjectStorageManager;
         var slidingExpiration = TimeSpan.FromMinutes(10);
         var absoluteExpiration = TimeSpan.FromHours(24);
 
@@ -98,38 +100,53 @@ public sealed class PromptsController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateAsync(CreatePromptDto dto, CancellationToken cancellationToken)
     {
-        var prompt = Prompt.Create(dto.Title, dto.Description, dto.Content, dto.IsActive);
+        string? imageUrl = null;
 
-        // Upload image
-        // if (dto.Image is not null)
-        //     prompt.SetImageUrl(await _fileService.UploadAsync(dto.Image));
-
-        _dbContext.Prompts.Add(prompt);
-
-        if (dto.CategoryIds is not null && dto.CategoryIds.Any())
+        try
         {
-            if (!await _dbContext.Categories.Where(c => dto.CategoryIds.Contains(c.Id)).AnyAsync(cancellationToken))
-                return BadRequest(ResponseDto<long>.Error(MessageHelper.GeneralValidationErrorMessage, new ValidationError(nameof(dto.CategoryIds), "Secili kategori bulunamadı.")));
+            var prompt = Prompt.Create(dto.Title, dto.Description, dto.Content, dto.IsActive);
 
-            var promptCategories = dto.CategoryIds
-                .Select(categoryId => PromptCategory.Create(prompt.Id, categoryId));
+            // Upload image
+            if (dto.Image is not null)
+            {
+                imageUrl = await _r2ObjectStorageManager.UploadPromptPicAsync(dto.Image, cancellationToken);
+                prompt.SetImageUrl(imageUrl);
+            }
 
-            _dbContext.PromptCategories.AddRange(promptCategories);
+            _dbContext.Prompts.Add(prompt);
+
+            if (dto.CategoryIds is not null && dto.CategoryIds.Any())
+            {
+                if (!await _dbContext.Categories.Where(c => dto.CategoryIds.Contains(c.Id)).AnyAsync(cancellationToken))
+                    return BadRequest(ResponseDto<long>.Error(MessageHelper.GeneralValidationErrorMessage, new ValidationError(nameof(dto.CategoryIds), "Secili kategori bulunamadı.")));
+
+                var promptCategories = dto.CategoryIds
+                    .Select(categoryId => PromptCategory.Create(prompt.Id, categoryId));
+
+                _dbContext.PromptCategories.AddRange(promptCategories);
+            }
+
+            if (dto.PlaceholderNames is not null && dto.PlaceholderNames.Any())
+            {
+                var placeholders = dto.PlaceholderNames
+                    .Select(name => Placeholder.Create(name, prompt.Id));
+
+                _dbContext.Placeholders.AddRange(placeholders);
+            }
+
+            await _dbContext.SaveChangesAsync(cancellationToken);
+
+            InvalidateCache();
+
+            return Ok(ResponseDto<long>.Success(prompt.Id, MessageHelper.GetApiSuccessCreatedMessage("Prompt")));
         }
-
-        if (dto.PlaceholderNames is not null && dto.PlaceholderNames.Any())
+        catch (Exception ex)
         {
-            var placeholders = dto.PlaceholderNames
-                .Select(name => Placeholder.Create(name, prompt.Id));
+            if (imageUrl is not null)
+                await _r2ObjectStorageManager.RemovePromptPicAsync(imageUrl, cancellationToken);
 
-            _dbContext.Placeholders.AddRange(placeholders);
+            throw;
         }
-
-        await _dbContext.SaveChangesAsync(cancellationToken);
-
-        InvalidateCache();
-
-        return Ok(ResponseDto<long>.Success(prompt.Id, MessageHelper.GetApiSuccessCreatedMessage("Prompt")));
     }
 
     [HttpPut("{id:long}")]

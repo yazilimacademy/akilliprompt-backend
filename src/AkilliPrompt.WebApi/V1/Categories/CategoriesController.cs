@@ -2,7 +2,6 @@ using AkilliPrompt.Domain.Entities;
 using AkilliPrompt.Persistence.EntityFramework.Contexts;
 using AkilliPrompt.WebApi.Helpers;
 using AkilliPrompt.WebApi.Models;
-using AkilliPrompt.WebApi.V1.Models.Categories;
 using Asp.Versioning;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
-namespace AkilliPrompt.WebApi.V1.Controllers;
+namespace AkilliPrompt.WebApi.V1.Categories;
 
 [Route("api/[controller]")]
 [ApiController]
