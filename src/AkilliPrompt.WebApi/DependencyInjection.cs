@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Text;
 using AkilliPrompt.Domain.Identity;
 using AkilliPrompt.Domain.Settings;
 using AkilliPrompt.Persistence.EntityFramework.Contexts;
@@ -7,8 +8,11 @@ using AkilliPrompt.WebApi.Behaviors;
 using AkilliPrompt.WebApi.Configuration;
 using AkilliPrompt.WebApi.Services;
 using FluentValidation;
+using IAPriceTrackerApp.WebApi.Services;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
 
 namespace AkilliPrompt.WebApi;
 
@@ -34,6 +38,9 @@ public static class DependencyInjection
 
         services.Configure<CloudflareR2Settings>(
             configuration.GetSection(nameof(CloudflareR2Settings)));
+
+        services.Configure<JwtSettings>(
+            configuration.GetSection(nameof(JwtSettings)));
 
 
         // Scoped Services
@@ -75,6 +82,49 @@ public static class DependencyInjection
         });
 
         services.AddScoped<ICacheInvalidator, CacheInvalidator>();
+
+        services.AddScoped<JwtManager>();
+
+        services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredUniqueChars = 0;
+                options.Password.RequiredLength = 6;
+            })
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
+
+        services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultForbidScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+        .AddJwtBearer(options =>
+        {
+            var secretKey = configuration["JwtSettings:SecretKey"];
+
+            if (string.IsNullOrEmpty(secretKey))
+                throw new ArgumentNullException("JwtSettings:SecretKey is not set.");
+
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = configuration["JwtSettings:Issuer"],
+                ValidAudience = configuration["JwtSettings:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
+                ClockSkew = TimeSpan.Zero
+            };
+        });
 
         return services;
     }
