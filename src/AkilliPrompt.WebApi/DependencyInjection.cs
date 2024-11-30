@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Text;
 using AkilliPrompt.Domain.Identity;
 using AkilliPrompt.Domain.Settings;
 using AkilliPrompt.Persistence.EntityFramework.Contexts;
@@ -6,9 +7,13 @@ using AkilliPrompt.Persistence.Services;
 using AkilliPrompt.WebApi.Behaviors;
 using AkilliPrompt.WebApi.Configuration;
 using AkilliPrompt.WebApi.Services;
+using AkilliPrompt.WebApi.V1.Auth.Commands.GoogleLogin;
 using FluentValidation;
+using IAPriceTrackerApp.WebApi.Services;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
 
 namespace AkilliPrompt.WebApi;
 
@@ -16,6 +21,16 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddWebApi(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddCors(options =>
+                               {
+                                   options.AddPolicy("AllowAll",
+                                       builder => builder
+                                           .AllowAnyMethod()
+                                           .AllowCredentials()
+                                           .SetIsOriginAllowed((host) => true)
+                                           .AllowAnyHeader());
+                               });
+
         services.AddSwaggerWithVersion();
         services.AddEndpointsApiExplorer();
 
@@ -34,6 +49,12 @@ public static class DependencyInjection
 
         services.Configure<CloudflareR2Settings>(
             configuration.GetSection(nameof(CloudflareR2Settings)));
+
+        services.Configure<JwtSettings>(
+            configuration.GetSection(nameof(JwtSettings)));
+
+        services.Configure<GoogleAuthSettings>(
+            configuration.GetSection(nameof(GoogleAuthSettings)));
 
 
         // Scoped Services
@@ -61,7 +82,7 @@ public static class DependencyInjection
 
             config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
-            config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
+            // config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
 
         });
 
@@ -75,6 +96,36 @@ public static class DependencyInjection
         });
 
         services.AddScoped<ICacheInvalidator, CacheInvalidator>();
+
+        services.AddScoped<JwtManager>();
+
+        services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultForbidScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+        .AddJwtBearer(options =>
+        {
+            var secretKey = configuration["JwtSettings:SecretKey"];
+
+            if (string.IsNullOrEmpty(secretKey))
+                throw new ArgumentNullException("JwtSettings:SecretKey is not set.");
+
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = configuration["JwtSettings:Issuer"],
+                ValidAudience = configuration["JwtSettings:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
+                ClockSkew = TimeSpan.Zero
+            };
+        });
 
         return services;
     }

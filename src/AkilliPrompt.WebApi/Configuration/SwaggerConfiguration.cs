@@ -1,6 +1,7 @@
 using AkilliPrompt.WebApi.Options;
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace AkilliPrompt.WebApi.Configuration;
@@ -9,7 +10,30 @@ public static class SwaggerConfiguration
 {
     public static IServiceCollection AddSwaggerWithVersion(this IServiceCollection services)
     {
-        services.AddSwaggerGen();
+        services.AddSwaggerGen(setupAction =>
+        {
+            setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            {
+                Type = SecuritySchemeType.Http,
+                Scheme = "bearer",
+                BearerFormat = "JWT",
+                Description = $"Input your Bearer token in this format - Bearer token to access this API",
+            });
+
+            setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer",
+                            },
+                        }, new List<string>()
+                    },
+                });
+        });
 
         services.
             AddApiVersioning(options =>

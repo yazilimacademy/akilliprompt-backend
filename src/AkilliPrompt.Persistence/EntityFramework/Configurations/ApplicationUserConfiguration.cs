@@ -1,4 +1,5 @@
 using AkilliPrompt.Domain.Identity;
+using AkilliPrompt.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -32,17 +33,23 @@ public sealed class ApplicationUserConfiguration : IEntityTypeConfiguration<Appl
         builder.Property(u => u.PhoneNumber).IsRequired(false);
         builder.Property(u => u.PhoneNumber).HasMaxLength(20);
 
-        //FullName
-        builder.OwnsOne(x => x.FullName, fullName =>
-        {
-            fullName.Property(x => x.FirstName)
-                .IsRequired()
-                .HasMaxLength(50);
+        // //FullName
+        // builder.OwnsOne(x => x.FullName, fullName =>
+        // {
+        //     fullName.Property(x => x.FirstName)
+        //         .IsRequired()
+        //         .HasMaxLength(50)
+        //         .HasColumnName("first_name");
 
-            fullName.Property(x => x.LastName)
-                .IsRequired()
-                .HasMaxLength(50);
-        });
+        //     fullName.Property(x => x.LastName)
+        //         .IsRequired()
+        //         .HasMaxLength(50)
+        //         .HasColumnName("last_name");
+
+        // });
+
+        builder.Property(x => x.FullName)
+            .HasConversion(x => x.ToString(), x => FullName.Create(x));
 
 
         // The relationships between User and other entity types
