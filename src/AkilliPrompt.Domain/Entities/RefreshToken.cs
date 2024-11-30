@@ -10,6 +10,6 @@ public class RefreshToken : EntityBase
     public string SecurityStamp { get; set; }
     public DateTime? Revoked { get; set; }
     public string? RevokedByIp { get; set; }
-    public long UserId { get; set; }
+    public Guid UserId { get; set; }
     public virtual ApplicationUser User { get; set; }
 }

@@ -22,6 +22,7 @@ public sealed class ApplicationDbContext : IdentityDbContext<ApplicationUser, Ap
     public DbSet<UserPromptComment> UserPromptComments { get; set; }
     public DbSet<UserFavoritePrompt> UserFavoritePrompts { get; set; }
     public DbSet<UserLikePrompt> UserLikePrompts { get; set; }
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

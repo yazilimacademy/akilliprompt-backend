@@ -7,6 +7,7 @@ using AkilliPrompt.Persistence.Services;
 using AkilliPrompt.WebApi.Behaviors;
 using AkilliPrompt.WebApi.Configuration;
 using AkilliPrompt.WebApi.Services;
+using AkilliPrompt.WebApi.V1.Auth.Commands.GoogleLogin;
 using FluentValidation;
 using IAPriceTrackerApp.WebApi.Services;
 using MediatR;
@@ -20,6 +21,16 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddWebApi(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddCors(options =>
+                               {
+                                   options.AddPolicy("AllowAll",
+                                       builder => builder
+                                           .AllowAnyMethod()
+                                           .AllowCredentials()
+                                           .SetIsOriginAllowed((host) => true)
+                                           .AllowAnyHeader());
+                               });
+
         services.AddSwaggerWithVersion();
         services.AddEndpointsApiExplorer();
 
@@ -41,6 +52,9 @@ public static class DependencyInjection
 
         services.Configure<JwtSettings>(
             configuration.GetSection(nameof(JwtSettings)));
+
+        services.Configure<GoogleAuthSettings>(
+            configuration.GetSection(nameof(GoogleAuthSettings)));
 
 
         // Scoped Services
@@ -68,7 +82,7 @@ public static class DependencyInjection
 
             config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
-            config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
+            // config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
 
         });
 
@@ -84,19 +98,6 @@ public static class DependencyInjection
         services.AddScoped<ICacheInvalidator, CacheInvalidator>();
 
         services.AddScoped<JwtManager>();
-
-        services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
-            {
-                options.User.RequireUniqueEmail = true;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireDigit = false;
-                options.Password.RequiredUniqueChars = 0;
-                options.Password.RequiredLength = 6;
-            })
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultTokenProviders();
 
         services.AddAuthentication(options =>
         {

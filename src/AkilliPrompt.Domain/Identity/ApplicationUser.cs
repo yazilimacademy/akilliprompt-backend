@@ -19,4 +19,16 @@ public sealed class ApplicationUser : IdentityUser<Guid>, ICreatedByEntity, IMod
     public ICollection<UserPromptComment> UserPromptComments { get; set; } = [];
     public ICollection<UserFavoritePrompt> UserFavoritePrompts { get; set; } = [];
     public ICollection<UserLikePrompt> UserLikePrompts { get; set; } = [];
+
+    public static ApplicationUser Create(string email, FullName fullName, bool isEmailConfirmed = false)
+    {
+        return new ApplicationUser
+        {
+            Id = Guid.CreateVersion7(),
+            Email = email,
+            UserName = email,
+            FullName = fullName,
+            EmailConfirmed = isEmailConfirmed,
+        };
+    }
 }

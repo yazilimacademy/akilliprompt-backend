@@ -33,6 +33,7 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                 columns: table => new
                 {
                     id = table.Column<Guid>(type: "uuid", nullable: false),
+                    full_name = table.Column<string>(type: "text", nullable: false),
                     created_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     created_by_user_id = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
                     modified_by_user_id = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
@@ -194,6 +195,34 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                     table.PrimaryKey("pk_application_user_tokens", x => new { x.user_id, x.login_provider, x.name });
                     table.ForeignKey(
                         name: "fk_application_user_tokens_application_users_user_id",
+                        column: x => x.user_id,
+                        principalTable: "application_users",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "refresh_tokens",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uuid", nullable: false),
+                    token = table.Column<string>(type: "text", nullable: false),
+                    expires = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    created_by_ip = table.Column<string>(type: "text", nullable: false),
+                    security_stamp = table.Column<string>(type: "text", nullable: false),
+                    revoked = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    revoked_by_ip = table.Column<string>(type: "text", nullable: true),
+                    user_id = table.Column<Guid>(type: "uuid", nullable: false),
+                    created_by_user_id = table.Column<string>(type: "text", nullable: true),
+                    created_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    modified_by_user_id = table.Column<string>(type: "text", nullable: true),
+                    modified_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("pk_refresh_tokens", x => x.id);
+                    table.ForeignKey(
+                        name: "fk_refresh_tokens_application_users_user_id",
                         column: x => x.user_id,
                         principalTable: "application_users",
                         principalColumn: "id",
@@ -380,24 +409,6 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                     { new Guid("019358ec-9d53-7785-a270-e22e10677a63"), "019358ec-aedc-742c-b677-a6b6bd8ef3bb", "User", "USER" }
                 });
 
-            migrationBuilder.InsertData(
-                table: "application_users",
-                columns: new[] { "id", "access_failed_count", "concurrency_stamp", "created_at", "created_by_user_id", "email", "email_confirmed", "lockout_enabled", "lockout_end", "modified_at", "modified_by_user_id", "normalized_email", "normalized_user_name", "password_hash", "phone_number", "phone_number_confirmed", "security_stamp", "two_factor_enabled", "user_name" },
-                values: new object[,]
-                {
-                    { new Guid("019358e7-cfd6-7ce0-a572-55f7859864b9"), 0, "b68dace3-2808-4be0-9a5d-637c5f2cfb09", new DateTimeOffset(new DateTime(2024, 11, 23, 15, 11, 4, 0, DateTimeKind.Unspecified), new TimeSpan(0, 3, 0, 0, 0)), "019358e7-cfd6-7ce0-a572-55f7859864b9", "alper.tunga@yazilim.academy", true, false, null, null, null, "ALPER.TUNGA@YAZILIM.ACADEMY", "ALPERTUNGA", null, null, false, "0c74dcdd-892a-41a3-995d-92c8529529dc", false, "alpertunga" },
-                    { new Guid("019358ef-0146-7bf9-994b-880e1002a653"), 0, "019358ef-3691-7726-844a-c0d9979417f4", new DateTimeOffset(new DateTime(2024, 11, 23, 15, 11, 5, 0, DateTimeKind.Unspecified), new TimeSpan(0, 3, 0, 0, 0)), "019358ef-0146-7bf9-994b-880e1002a653", "merveeksii61@gmail.com", true, false, null, null, null, "MERVEEKSII61@GMAIL.COM", "MERVEEKSI", null, null, false, "019358ef-213d-7ada-b02d-4e60dd64b9f9", false, "merveeksi" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "application_user_roles",
-                columns: new[] { "role_id", "user_id" },
-                values: new object[,]
-                {
-                    { new Guid("019358eb-f6cb-78c6-b59c-848777da66af"), new Guid("019358e7-cfd6-7ce0-a572-55f7859864b9") },
-                    { new Guid("019358ec-9d53-7785-a270-e22e10677a63"), new Guid("019358ef-0146-7bf9-994b-880e1002a653") }
-                });
-
             migrationBuilder.CreateIndex(
                 name: "ix_application_role_claims_role_id",
                 table: "application_role_claims",
@@ -456,6 +467,11 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                 table: "prompt_categories",
                 columns: new[] { "prompt_id", "category_id" },
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "ix_refresh_tokens_user_id",
+                table: "refresh_tokens",
+                column: "user_id");
 
             migrationBuilder.CreateIndex(
                 name: "ix_user_favorite_prompts_prompt_id",
@@ -523,6 +539,9 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
 
             migrationBuilder.DropTable(
                 name: "prompt_categories");
+
+            migrationBuilder.DropTable(
+                name: "refresh_tokens");
 
             migrationBuilder.DropTable(
                 name: "user_favorite_prompts");

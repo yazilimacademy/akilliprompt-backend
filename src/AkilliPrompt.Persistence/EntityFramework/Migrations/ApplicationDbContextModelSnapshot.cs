@@ -220,6 +220,71 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                     b.ToView(null);
                 });
 
+            modelBuilder.Entity("AkilliPrompt.Domain.Entities.RefreshToken", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<string>("CreatedByIp")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("created_by_ip");
+
+                    b.Property<string>("CreatedByUserId")
+                        .HasColumnType("text")
+                        .HasColumnName("created_by_user_id");
+
+                    b.Property<DateTime>("Expires")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("expires");
+
+                    b.Property<DateTimeOffset?>("ModifiedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("modified_at");
+
+                    b.Property<string>("ModifiedByUserId")
+                        .HasColumnType("text")
+                        .HasColumnName("modified_by_user_id");
+
+                    b.Property<DateTime?>("Revoked")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("revoked");
+
+                    b.Property<string>("RevokedByIp")
+                        .HasColumnType("text")
+                        .HasColumnName("revoked_by_ip");
+
+                    b.Property<string>("SecurityStamp")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("security_stamp");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("token");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("pk_refresh_tokens");
+
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("ix_refresh_tokens_user_id");
+
+                    b.ToTable("refresh_tokens", (string)null);
+
+                    b.ToView(null);
+                });
+
             modelBuilder.Entity("AkilliPrompt.Domain.Entities.UserFavoritePrompt", b =>
                 {
                     b.Property<Guid>("Id")
@@ -547,6 +612,11 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                         .HasColumnType("boolean")
                         .HasColumnName("email_confirmed");
 
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("full_name");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("boolean")
                         .HasColumnName("lockout_enabled");
@@ -617,42 +687,6 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                     b.ToTable("application_users", (string)null);
 
                     b.ToView(null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("019358e7-cfd6-7ce0-a572-55f7859864b9"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "b68dace3-2808-4be0-9a5d-637c5f2cfb09",
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 11, 23, 15, 11, 4, 0, DateTimeKind.Unspecified), new TimeSpan(0, 3, 0, 0, 0)),
-                            CreatedByUserId = "019358e7-cfd6-7ce0-a572-55f7859864b9",
-                            Email = "alper.tunga@yazilim.academy",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ALPER.TUNGA@YAZILIM.ACADEMY",
-                            NormalizedUserName = "ALPERTUNGA",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "0c74dcdd-892a-41a3-995d-92c8529529dc",
-                            TwoFactorEnabled = false,
-                            UserName = "alpertunga"
-                        },
-                        new
-                        {
-                            Id = new Guid("019358ef-0146-7bf9-994b-880e1002a653"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "019358ef-3691-7726-844a-c0d9979417f4",
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 11, 23, 15, 11, 5, 0, DateTimeKind.Unspecified), new TimeSpan(0, 3, 0, 0, 0)),
-                            CreatedByUserId = "019358ef-0146-7bf9-994b-880e1002a653",
-                            Email = "merveeksii61@gmail.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "MERVEEKSII61@GMAIL.COM",
-                            NormalizedUserName = "MERVEEKSI",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "019358ef-213d-7ada-b02d-4e60dd64b9f9",
-                            TwoFactorEnabled = false,
-                            UserName = "merveeksi"
-                        });
                 });
 
             modelBuilder.Entity("AkilliPrompt.Domain.Identity.ApplicationUserClaim", b =>
@@ -737,18 +771,6 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                     b.ToTable("application_user_roles", (string)null);
 
                     b.ToView(null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = new Guid("019358e7-cfd6-7ce0-a572-55f7859864b9"),
-                            RoleId = new Guid("019358eb-f6cb-78c6-b59c-848777da66af")
-                        },
-                        new
-                        {
-                            UserId = new Guid("019358ef-0146-7bf9-994b-880e1002a653"),
-                            RoleId = new Guid("019358ec-9d53-7785-a270-e22e10677a63")
-                        });
                 });
 
             modelBuilder.Entity("AkilliPrompt.Domain.Identity.ApplicationUserToken", b =>
@@ -810,6 +832,18 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Prompt");
+                });
+
+            modelBuilder.Entity("AkilliPrompt.Domain.Entities.RefreshToken", b =>
+                {
+                    b.HasOne("AkilliPrompt.Domain.Identity.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_refresh_tokens_application_users_user_id");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("AkilliPrompt.Domain.Entities.UserFavoritePrompt", b =>
@@ -902,40 +936,6 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_application_role_claims_application_roles_role_id");
-                });
-
-            modelBuilder.Entity("AkilliPrompt.Domain.Identity.ApplicationUser", b =>
-                {
-                    b.OwnsOne("AkilliPrompt.Domain.ValueObjects.FullName", "FullName", b1 =>
-                        {
-                            b1.Property<Guid>("ApplicationUserId")
-                                .HasColumnType("uuid")
-                                .HasColumnName("application_user_id");
-
-                            b1.Property<string>("FirstName")
-                                .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("character varying(50)")
-                                .HasColumnName("first_name");
-
-                            b1.Property<string>("LastName")
-                                .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("character varying(50)")
-                                .HasColumnName("last_name");
-
-                            b1.HasKey("ApplicationUserId");
-
-                            b1.ToTable((string)null);
-
-                            b1.ToView(null);
-
-                            b1.WithOwner()
-                                .HasForeignKey("ApplicationUserId");
-                        });
-
-                    b.Navigation("FullName")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("AkilliPrompt.Domain.Identity.ApplicationUserClaim", b =>
