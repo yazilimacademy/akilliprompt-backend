@@ -14,6 +14,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using StackExchange.Redis;
 
 namespace AkilliPrompt.WebApi;
 
@@ -82,7 +83,7 @@ public static class DependencyInjection
 
             config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
-            // config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
+            config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
 
         });
 
@@ -95,7 +96,13 @@ public static class DependencyInjection
                                                     // For example, if Dragonfly supports specific features or optimizations, configure them here
         });
 
-        services.AddScoped<ICacheInvalidator, CacheInvalidator>();
+        services.AddScoped<CacheInvalidator>();
+
+        services.AddSingleton<CacheKeyFactory>();
+
+        // Register Redis connection for advanced operations
+        services.AddSingleton<IConnectionMultiplexer>(sp =>
+            ConnectionMultiplexer.Connect(configuration.GetConnectionString("Dragonfly")));
 
         services.AddScoped<JwtManager>();
 

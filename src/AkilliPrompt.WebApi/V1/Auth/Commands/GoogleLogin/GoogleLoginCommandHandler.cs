@@ -60,12 +60,14 @@ public sealed class GoogleLoginCommandHandler : IRequestHandler<GoogleLoginComma
                 var failures = result.Errors.Select(error => new ValidationFailure(error.Code, error.Description));
                 throw new ValidationException(failures);
             }
+
+            await _userManager.AddToRoleAsync(user, "User");
         }
 
         // Generate JWT token
         var roles = await _userManager.GetRolesAsync(user);
 
-        var accessToken = _jwtManager.GenerateToken(user, roles.ToList());
+        var accessToken = _jwtManager.GenerateToken(user, roles);
 
         // Generate refresh token
         var refreshToken = new RefreshToken(Guid.CreateVersion7().ToString(), DateTime.UtcNow.Add(_jwtSettings.RefreshTokenExpiration));

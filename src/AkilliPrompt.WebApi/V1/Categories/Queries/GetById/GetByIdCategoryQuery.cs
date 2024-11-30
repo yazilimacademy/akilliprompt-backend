@@ -1,10 +1,19 @@
 using AkilliPrompt.Domain.Common;
-using AkilliPrompt.WebApi.Helpers;
+using AkilliPrompt.WebApi.Attributes;
 using MediatR;
 
 namespace AkilliPrompt.WebApi.V1.Categories.Queries.GetById;
 
-public sealed record GetByIdCategoryQuery(Guid Id) : IRequest<GetByIdCategoryDto>, ICacheable
+[CacheOptions(absoluteExpirationMinutes: 960, slidingExpirationMinutes: 120)]
+public sealed record GetByIdCategoryQuery : IRequest<GetByIdCategoryDto>, ICacheable
 {
-    public string CacheKey => CacheKeysHelper.GetByIdCategoryKey(Id);
+    public string CacheGroup => "Categories";
+
+    [CacheKeyPart]
+    public Guid Id { get; set; }
+
+    public GetByIdCategoryQuery(Guid id)
+    {
+        Id = id;
+    }
 }

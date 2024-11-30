@@ -41,6 +41,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Attributes\" />
+    <Folder Include="Interfaces\" />
     <Folder Include="Logs\" />
   </ItemGroup>
 

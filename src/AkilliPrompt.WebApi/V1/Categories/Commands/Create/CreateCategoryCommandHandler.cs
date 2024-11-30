@@ -12,8 +12,8 @@ namespace AkilliPrompt.WebApi.V1.Categories.Commands.Create;
 public sealed class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, ResponseDto<Guid>>
 {
     private readonly ApplicationDbContext _dbContext;
-    private readonly ICacheInvalidator _cacheInvalidator;
-    public CreateCategoryCommandHandler(ApplicationDbContext dbContext, ICacheInvalidator cacheInvalidator)
+    private readonly CacheInvalidator _cacheInvalidator;
+    public CreateCategoryCommandHandler(ApplicationDbContext dbContext, CacheInvalidator cacheInvalidator)
     {
         _dbContext = dbContext;
         _cacheInvalidator = cacheInvalidator;
@@ -27,7 +27,7 @@ public sealed class CreateCategoryCommandHandler : IRequestHandler<CreateCategor
         await _dbContext.SaveChangesAsync(cancellationToken);
 
         // Invalidate relevant caches
-        await _cacheInvalidator.InvalidateAsync(CacheKeysHelper.GetAllCategoriesKey, cancellationToken);
+        await _cacheInvalidator.InvalidateGroupAsync("Categories", cancellationToken);
 
         return ResponseDto<Guid>.Success(category.Id, MessageHelper.GetApiSuccessCreatedMessage("Kategori"));
     }

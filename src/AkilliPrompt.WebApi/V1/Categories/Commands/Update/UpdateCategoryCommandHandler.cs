@@ -10,8 +10,8 @@ namespace AkilliPrompt.WebApi.V1.Categories.Commands.Update;
 public sealed class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, ResponseDto<Guid>>
 {
     private readonly ApplicationDbContext _dbContext;
-    private readonly ICacheInvalidator _cacheInvalidator;
-    public UpdateCategoryCommandHandler(ApplicationDbContext dbContext, ICacheInvalidator cacheInvalidator)
+    private readonly CacheInvalidator _cacheInvalidator;
+    public UpdateCategoryCommandHandler(ApplicationDbContext dbContext, CacheInvalidator cacheInvalidator)
     {
         _dbContext = dbContext;
         _cacheInvalidator = cacheInvalidator;
@@ -26,10 +26,7 @@ public sealed class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategor
             .SetProperty(x => x.Description, request.Description), cancellationToken);
 
         // Invalidate relevant caches concurrently
-        await Task.WhenAll(
-            _cacheInvalidator.InvalidateAsync(CacheKeysHelper.GetAllCategoriesKey, cancellationToken),
-            _cacheInvalidator.InvalidateAsync(CacheKeysHelper.GetByIdCategoryKey(request.Id), cancellationToken)
-        );
+        await _cacheInvalidator.InvalidateGroupAsync("Categories", cancellationToken);
 
         return ResponseDto<Guid>.Success(request.Id, MessageHelper.GetApiSuccessUpdatedMessage("Kategori"));
     }

@@ -8,8 +8,8 @@ using AkilliPrompt.WebApi.V1.Categories.Queries.GetAll;
 using AkilliPrompt.WebApi.V1.Categories.Queries.GetById;
 using Asp.Versioning;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace AkilliPrompt.WebApi.V1.Categories;
@@ -17,6 +17,7 @@ namespace AkilliPrompt.WebApi.V1.Categories;
 [ApiController]
 [ApiVersion("1.0")]
 [Route("v{version:apiVersion}/[controller]")]
+[Authorize]
 public sealed class CategoriesController : ControllerBase
 {
     private readonly ApplicationDbContext _dbContext;
@@ -43,12 +44,14 @@ public sealed class CategoriesController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> CreateAsync(CreateCategoryCommand command, CancellationToken cancellationToken)
     {
         return Ok(await _mediator.Send(command, cancellationToken));
     }
 
     [HttpPut("{id:guid}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateAsync(Guid id, UpdateCategoryCommand command, CancellationToken cancellationToken)
     {
         if (command.Id != id)
@@ -58,6 +61,7 @@ public sealed class CategoriesController : ControllerBase
     }
 
     [HttpDelete("{id:guid}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
     {
         return Ok(await _mediator.Send(new DeleteCategoryCommand(id), cancellationToken));
