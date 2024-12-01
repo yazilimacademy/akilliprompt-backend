@@ -9,7 +9,7 @@ using StackExchange.Redis;
 
 namespace AkilliPrompt.WebApi.Behaviors;
 
-public class CachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+public sealed class CachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : ICacheable
 {
     private readonly IDistributedCache _cache;

@@ -1,5 +1,5 @@
 using AkilliPrompt.Domain.Common;
-using TSID.Creator.NET;
+using AkilliPrompt.Domain.Identity;
 
 namespace AkilliPrompt.Domain.Entities;
 
@@ -11,6 +11,10 @@ public sealed class Prompt : EntityBase
 
     public string? ImageUrl { get; private set; }
     public bool IsActive { get; private set; }
+    public int LikeCount { get; private set; }
+
+    public Guid CreatorId { get; private set; }
+    public ApplicationUser Creator { get; private set; }
 
     public ICollection<PromptCategory> PromptCategories { get; private set; } = [];
     public ICollection<UserFavoritePrompt> UserFavoritePrompts { get; set; } = [];

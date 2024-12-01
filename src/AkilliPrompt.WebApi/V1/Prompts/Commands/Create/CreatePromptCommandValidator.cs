@@ -3,13 +3,13 @@ using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 
-namespace AkilliPrompt.WebApi.V1.Prompts.Create;
+namespace AkilliPrompt.WebApi.V1.Prompts.Commands.Create;
 
-public sealed class CreatePromptDtoValidator : AbstractValidator<CreatePromptDto>
+public sealed class CreatePromptCommandValidator : AbstractValidator<CreatePromptCommand>
 {
     private readonly ApplicationDbContext _context;
 
-    public CreatePromptDtoValidator(ApplicationDbContext context)
+    public CreatePromptCommandValidator(ApplicationDbContext context)
     {
         _context = context;
 
