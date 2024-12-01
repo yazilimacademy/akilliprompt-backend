@@ -19,7 +19,7 @@ public sealed class ApplicationDbContext : IdentityDbContext<ApplicationUser, Ap
     public DbSet<Prompt> Prompts { get; set; }
     public DbSet<PromptCategory> PromptCategories { get; set; }
     public DbSet<UserSocialMediaAccount> UserSocialMediaAccounts { get; set; }
-    public DbSet<UserPromptComment> UserPromptComments { get; set; }
+    public DbSet<PromptComment> PromptComments { get; set; }
     public DbSet<UserFavoritePrompt> UserFavoritePrompts { get; set; }
     public DbSet<UserLikePrompt> UserLikePrompts { get; set; }
     public DbSet<RefreshToken> RefreshTokens { get; set; }

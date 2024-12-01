@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AkilliPrompt.Persistence.EntityFramework.Configurations;
 
-public sealed class UserPromptCommentConfiguration : IEntityTypeConfiguration<UserPromptComment>
+public sealed class UserPromptCommentConfiguration : IEntityTypeConfiguration<PromptComment>
 {
-    public void Configure(EntityTypeBuilder<UserPromptComment> builder)
+    public void Configure(EntityTypeBuilder<PromptComment> builder)
     {
         // Id
         builder.HasKey(x => x.Id);
@@ -24,7 +24,7 @@ public sealed class UserPromptCommentConfiguration : IEntityTypeConfiguration<Us
 
         // User Relationship
         builder.HasOne(x => x.User)
-            .WithMany(u => u.UserPromptComments)
+            .WithMany(u => u.PromptComments)
             .HasForeignKey(x => x.UserId);
 
         // Parent Comment Relationship

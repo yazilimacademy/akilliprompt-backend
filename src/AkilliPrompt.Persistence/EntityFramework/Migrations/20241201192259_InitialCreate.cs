@@ -76,26 +76,6 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "prompts",
-                columns: table => new
-                {
-                    id = table.Column<Guid>(type: "uuid", nullable: false),
-                    title = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
-                    description = table.Column<string>(type: "character varying(5000)", maxLength: 5000, nullable: false),
-                    content = table.Column<string>(type: "text", nullable: false),
-                    image_url = table.Column<string>(type: "character varying(1024)", maxLength: 1024, nullable: true),
-                    is_active = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false),
-                    created_by_user_id = table.Column<string>(type: "text", nullable: true),
-                    created_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    modified_by_user_id = table.Column<string>(type: "text", nullable: true),
-                    modified_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("pk_prompts", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "application_role_claims",
                 columns: table => new
                 {
@@ -196,6 +176,34 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                     table.ForeignKey(
                         name: "fk_application_user_tokens_application_users_user_id",
                         column: x => x.user_id,
+                        principalTable: "application_users",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "prompts",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uuid", nullable: false),
+                    title = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    description = table.Column<string>(type: "character varying(5000)", maxLength: 5000, nullable: false),
+                    content = table.Column<string>(type: "text", nullable: false),
+                    image_url = table.Column<string>(type: "character varying(1024)", maxLength: 1024, nullable: true),
+                    is_active = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false),
+                    like_count = table.Column<int>(type: "integer", nullable: false, defaultValue: 0),
+                    creator_id = table.Column<Guid>(type: "uuid", nullable: false),
+                    created_by_user_id = table.Column<string>(type: "text", nullable: true),
+                    created_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    modified_by_user_id = table.Column<string>(type: "text", nullable: true),
+                    modified_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("pk_prompts", x => x.id);
+                    table.ForeignKey(
+                        name: "fk_prompts_application_users_creator_id",
+                        column: x => x.creator_id,
                         principalTable: "application_users",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -467,6 +475,17 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                 table: "prompt_categories",
                 columns: new[] { "prompt_id", "category_id" },
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "ix_prompts_creator_id",
+                table: "prompts",
+                column: "creator_id");
+
+            migrationBuilder.CreateIndex(
+                name: "ix_prompts_like_count_desc",
+                table: "prompts",
+                column: "like_count",
+                descending: new bool[0]);
 
             migrationBuilder.CreateIndex(
                 name: "ix_refresh_tokens_user_id",

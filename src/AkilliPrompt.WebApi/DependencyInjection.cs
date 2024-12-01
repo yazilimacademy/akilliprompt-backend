@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Text;
+using AkilliPrompt.Domain.Common;
 using AkilliPrompt.Domain.Identity;
 using AkilliPrompt.Domain.Settings;
 using AkilliPrompt.Persistence.EntityFramework.Contexts;
@@ -99,6 +100,8 @@ public static class DependencyInjection
         services.AddScoped<CacheInvalidator>();
 
         services.AddSingleton<CacheKeyFactory>();
+
+        services.AddScoped(typeof(IExistenceService<>), typeof(ExistenceManager<>));
 
         // Register Redis connection for advanced operations
         services.AddSingleton<IConnectionMultiplexer>(sp =>

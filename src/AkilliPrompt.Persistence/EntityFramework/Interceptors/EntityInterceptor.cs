@@ -43,13 +43,13 @@ namespace AkilliPrompt.Persistence.EntityFramework.Interceptors
 
                     if (entry.State == EntityState.Added)
                     {
-                        entry.Entity.CreatedByUserId = _currentUserService.UserId?.ToString();
+                        entry.Entity.CreatedByUserId = _currentUserService.UserId == Guid.Empty ? null : _currentUserService.UserId.ToString();
                         entry.Entity.CreatedAt = utcNow;
                     }
 
                     if (entry.State == EntityState.Modified)
                     {
-                        entry.Entity.ModifiedByUserId = _currentUserService.UserId?.ToString();
+                        entry.Entity.ModifiedByUserId = _currentUserService.UserId == Guid.Empty ? null : _currentUserService.UserId.ToString();
                         entry.Entity.ModifiedAt = utcNow;
                     }
                 }

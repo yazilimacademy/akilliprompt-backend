@@ -20,9 +20,10 @@ public sealed class Prompt : EntityBase
     public ICollection<UserFavoritePrompt> UserFavoritePrompts { get; set; } = [];
     public ICollection<UserLikePrompt> UserLikePrompts { get; set; } = [];
     public ICollection<Placeholder> Placeholders { get; set; } = [];
+    public ICollection<PromptComment> PromptComments { get; set; } = [];
 
 
-    public static Prompt Create(string title, string description, string content, bool isActive)
+    public static Prompt Create(string title, string description, string content, bool isActive, Guid creatorId)
     {
         return new Prompt
         {
@@ -30,7 +31,8 @@ public sealed class Prompt : EntityBase
             Title = title,
             Description = description,
             Content = content,
-            IsActive = isActive
+            IsActive = isActive,
+            CreatorId = creatorId
         };
     }
 
