@@ -1,10 +1,9 @@
-using System;
 using AkilliPrompt.Domain.Common;
 using AkilliPrompt.Domain.Identity;
 
 namespace AkilliPrompt.Domain.Entities;
 
-public sealed class UserPromptComment : EntityBase
+public sealed class PromptComment : EntityBase
 {
     public int Level { get; set; }
     public string Content { get; set; }
@@ -16,7 +15,7 @@ public sealed class UserPromptComment : EntityBase
     public ApplicationUser User { get; set; }
 
     public Guid? ParentCommentId { get; set; }
-    public UserPromptComment ParentComment { get; set; }
+    public PromptComment ParentComment { get; set; }
 
-    public ICollection<UserPromptComment> ChildComments { get; set; } = [];
+    public ICollection<PromptComment> ChildComments { get; set; } = [];
 }

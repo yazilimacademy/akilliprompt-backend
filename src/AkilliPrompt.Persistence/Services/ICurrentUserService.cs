@@ -4,6 +4,6 @@ namespace AkilliPrompt.Persistence.Services;
 
 public interface ICurrentUserService
 {
-    long? UserId { get; }
+    Guid UserId { get; }
     string IpAddress { get; }
 }

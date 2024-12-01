@@ -66,6 +66,11 @@ public sealed class PromptConfiguration : IEntityTypeConfiguration<Prompt>
             .WithOne(p => p.Prompt)
             .HasForeignKey(p => p.PromptId);
 
+        // PromptComments Relationship
+        builder.HasMany<PromptComment>(x => x.PromptComments)
+            .WithOne(y => y.Prompt)
+            .HasForeignKey(y => y.PromptId);
+
 
         // CreatedAt
         builder.Property(p => p.CreatedAt)

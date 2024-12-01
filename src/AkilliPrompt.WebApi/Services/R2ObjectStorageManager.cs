@@ -1,4 +1,3 @@
-using System;
 using System.Net;
 using AkilliPrompt.Domain.Settings;
 using AkilliPrompt.Persistence.Services;
@@ -50,7 +49,7 @@ public sealed class R2ObjectStorageManager
         };
 
         request.Metadata.Add("promptId", promptId.ToString());
-        request.Metadata.Add("userId", _currentUserService.UserId?.ToString() ?? "unknown");
+        request.Metadata.Add("userId", _currentUserService.UserId.ToString());
 
         var response = await _s3Client.PutObjectAsync(request, cancellationToken);
 

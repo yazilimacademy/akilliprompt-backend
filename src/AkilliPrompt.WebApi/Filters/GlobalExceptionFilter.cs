@@ -18,9 +18,9 @@ public class GlobalExceptionFilter : IExceptionFilter
     {
         _logger.LogError(context.Exception, context.Exception.Message);
 
-         context.ExceptionHandled = true;
+        context.ExceptionHandled = true;
 
-         // Eğer hata bir doğrulama hatası ise
+        // Eğer hata bir doğrulama hatası ise
         if (context.Exception is ValidationException validationException)
         {
 

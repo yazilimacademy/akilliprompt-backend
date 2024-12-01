@@ -16,7 +16,7 @@ public sealed class ApplicationUser : IdentityUser<Guid>, ICreatedByEntity, IMod
     public DateTimeOffset? ModifiedAt { get; set; }
 
     public ICollection<UserSocialMediaAccount> UserSocialMediaAccounts { get; set; } = [];
-    public ICollection<UserPromptComment> UserPromptComments { get; set; } = [];
+    public ICollection<PromptComment> PromptComments { get; set; } = [];
     public ICollection<UserFavoritePrompt> UserFavoritePrompts { get; set; } = [];
     public ICollection<UserLikePrompt> UserLikePrompts { get; set; } = [];
     public ICollection<Prompt> CreatedPrompts { get; set; } = [];

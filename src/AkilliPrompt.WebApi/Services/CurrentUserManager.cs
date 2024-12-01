@@ -15,25 +15,25 @@ public sealed class CurrentUserManager : ICurrentUserService
     }
 
     // public long? UserId => GetUserId();
-    public long? UserId => 123456;
+    public Guid UserId => GetUserId();
 
     public string IpAddress => GetIpAddress();
 
-    private long? GetUserId()
+    private Guid GetUserId()
     {
         var userId = _httpContextAccessor.HttpContext?.User.FindFirst("uid")?.Value;
 
-        return userId is null ? null : long.Parse(userId);
+        return userId is null ? Guid.Empty : Guid.Parse(userId);
     }
 
     private string GetIpAddress()
-        {
-            if (_env.IsDevelopment())
-                return IpHelper.GetIpAddress();
+    {
+        if (_env.IsDevelopment())
+            return IpHelper.GetIpAddress();
 
-            if (_httpContextAccessor.HttpContext.Request.Headers.ContainsKey("X-Forwarded-For"))
-                return _httpContextAccessor.HttpContext.Request.Headers["X-Forwarded-For"];
-            else
-                return _httpContextAccessor.HttpContext.Connection.RemoteIpAddress?.ToString();
-        }
+        if (_httpContextAccessor.HttpContext.Request.Headers.ContainsKey("X-Forwarded-For"))
+            return _httpContextAccessor.HttpContext.Request.Headers["X-Forwarded-For"];
+        else
+            return _httpContextAccessor.HttpContext.Connection.RemoteIpAddress?.ToString();
+    }
 }

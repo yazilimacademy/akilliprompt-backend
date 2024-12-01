@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AkilliPrompt.Persistence.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241130162952_InitialCreate")]
+    [Migration("20241201192259_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -136,6 +136,10 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                         .HasColumnType("text")
                         .HasColumnName("created_by_user_id");
 
+                    b.Property<Guid>("CreatorId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("creator_id");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(5000)
@@ -153,6 +157,12 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("is_active");
 
+                    b.Property<int>("LikeCount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("like_count");
+
                     b.Property<DateTimeOffset?>("ModifiedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("modified_at");
@@ -169,6 +179,13 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
 
                     b.HasKey("Id")
                         .HasName("pk_prompts");
+
+                    b.HasIndex("CreatorId")
+                        .HasDatabaseName("ix_prompts_creator_id");
+
+                    b.HasIndex("LikeCount")
+                        .IsDescending()
+                        .HasDatabaseName("ix_prompts_like_count_desc");
 
                     b.ToTable("prompts", (string)null);
 
@@ -219,6 +236,70 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                         .HasDatabaseName("ix_prompt_categories_prompt_id_category_id");
 
                     b.ToTable("prompt_categories", (string)null);
+
+                    b.ToView(null);
+                });
+
+            modelBuilder.Entity("AkilliPrompt.Domain.Entities.PromptComment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)")
+                        .HasColumnName("content");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<string>("CreatedByUserId")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("created_by_user_id");
+
+                    b.Property<int>("Level")
+                        .HasColumnType("integer")
+                        .HasColumnName("level");
+
+                    b.Property<DateTimeOffset?>("ModifiedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("modified_at");
+
+                    b.Property<string>("ModifiedByUserId")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("modified_by_user_id");
+
+                    b.Property<Guid?>("ParentCommentId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("parent_comment_id");
+
+                    b.Property<Guid>("PromptId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("prompt_id");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("pk_user_prompt_comments");
+
+                    b.HasIndex("ParentCommentId")
+                        .HasDatabaseName("ix_user_prompt_comments_parent_comment_id");
+
+                    b.HasIndex("PromptId")
+                        .HasDatabaseName("ix_user_prompt_comments_prompt_id");
+
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("ix_user_prompt_comments_user_id");
+
+                    b.ToTable("user_prompt_comments", (string)null);
 
                     b.ToView(null);
                 });
@@ -380,70 +461,6 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                         .HasDatabaseName("ix_user_like_prompts_user_id_prompt_id");
 
                     b.ToTable("user_like_prompts", (string)null);
-
-                    b.ToView(null);
-                });
-
-            modelBuilder.Entity("AkilliPrompt.Domain.Entities.UserPromptComment", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasColumnName("id");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("character varying(1000)")
-                        .HasColumnName("content");
-
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<string>("CreatedByUserId")
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)")
-                        .HasColumnName("created_by_user_id");
-
-                    b.Property<int>("Level")
-                        .HasColumnType("integer")
-                        .HasColumnName("level");
-
-                    b.Property<DateTimeOffset?>("ModifiedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("modified_at");
-
-                    b.Property<string>("ModifiedByUserId")
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)")
-                        .HasColumnName("modified_by_user_id");
-
-                    b.Property<Guid?>("ParentCommentId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("parent_comment_id");
-
-                    b.Property<Guid>("PromptId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("prompt_id");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
-
-                    b.HasKey("Id")
-                        .HasName("pk_user_prompt_comments");
-
-                    b.HasIndex("ParentCommentId")
-                        .HasDatabaseName("ix_user_prompt_comments_parent_comment_id");
-
-                    b.HasIndex("PromptId")
-                        .HasDatabaseName("ix_user_prompt_comments_prompt_id");
-
-                    b.HasIndex("UserId")
-                        .HasDatabaseName("ix_user_prompt_comments_user_id");
-
-                    b.ToTable("user_prompt_comments", (string)null);
 
                     b.ToView(null);
                 });
@@ -816,6 +833,18 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                     b.Navigation("Prompt");
                 });
 
+            modelBuilder.Entity("AkilliPrompt.Domain.Entities.Prompt", b =>
+                {
+                    b.HasOne("AkilliPrompt.Domain.Identity.ApplicationUser", "Creator")
+                        .WithMany("CreatedPrompts")
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_prompts_application_users_creator_id");
+
+                    b.Navigation("Creator");
+                });
+
             modelBuilder.Entity("AkilliPrompt.Domain.Entities.PromptCategory", b =>
                 {
                     b.HasOne("AkilliPrompt.Domain.Entities.Category", "Category")
@@ -835,6 +864,34 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Prompt");
+                });
+
+            modelBuilder.Entity("AkilliPrompt.Domain.Entities.PromptComment", b =>
+                {
+                    b.HasOne("AkilliPrompt.Domain.Entities.PromptComment", "ParentComment")
+                        .WithMany("ChildComments")
+                        .HasForeignKey("ParentCommentId")
+                        .HasConstraintName("fk_user_prompt_comments_user_prompt_comments_parent_comment_id");
+
+                    b.HasOne("AkilliPrompt.Domain.Entities.Prompt", "Prompt")
+                        .WithMany("PromptComments")
+                        .HasForeignKey("PromptId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_user_prompt_comments_prompts_prompt_id");
+
+                    b.HasOne("AkilliPrompt.Domain.Identity.ApplicationUser", "User")
+                        .WithMany("PromptComments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_user_prompt_comments_application_users_user_id");
+
+                    b.Navigation("ParentComment");
+
+                    b.Navigation("Prompt");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("AkilliPrompt.Domain.Entities.RefreshToken", b =>
@@ -885,34 +942,6 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_user_like_prompts_application_users_user_id");
-
-                    b.Navigation("Prompt");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("AkilliPrompt.Domain.Entities.UserPromptComment", b =>
-                {
-                    b.HasOne("AkilliPrompt.Domain.Entities.UserPromptComment", "ParentComment")
-                        .WithMany("ChildComments")
-                        .HasForeignKey("ParentCommentId")
-                        .HasConstraintName("fk_user_prompt_comments_user_prompt_comments_parent_comment_id");
-
-                    b.HasOne("AkilliPrompt.Domain.Entities.Prompt", "Prompt")
-                        .WithMany()
-                        .HasForeignKey("PromptId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_user_prompt_comments_prompts_prompt_id");
-
-                    b.HasOne("AkilliPrompt.Domain.Identity.ApplicationUser", "User")
-                        .WithMany("UserPromptComments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_user_prompt_comments_application_users_user_id");
-
-                    b.Navigation("ParentComment");
 
                     b.Navigation("Prompt");
 
@@ -999,23 +1028,27 @@ namespace AkilliPrompt.Persistence.EntityFramework.Migrations
 
                     b.Navigation("PromptCategories");
 
+                    b.Navigation("PromptComments");
+
                     b.Navigation("UserFavoritePrompts");
 
                     b.Navigation("UserLikePrompts");
                 });
 
-            modelBuilder.Entity("AkilliPrompt.Domain.Entities.UserPromptComment", b =>
+            modelBuilder.Entity("AkilliPrompt.Domain.Entities.PromptComment", b =>
                 {
                     b.Navigation("ChildComments");
                 });
 
             modelBuilder.Entity("AkilliPrompt.Domain.Identity.ApplicationUser", b =>
                 {
+                    b.Navigation("CreatedPrompts");
+
+                    b.Navigation("PromptComments");
+
                     b.Navigation("UserFavoritePrompts");
 
                     b.Navigation("UserLikePrompts");
-
-                    b.Navigation("UserPromptComments");
 
                     b.Navigation("UserSocialMediaAccounts");
                 });
