@@ -26,20 +26,44 @@ public class CacheInvalidator
         _logger.LogInformation($"[Cache Invalidate] Key: {cacheKey}");
     }
 
+    // Muhammet bizi uyardi. Pattern'e uygun key'leri silen bir script yazmanin daha iyi oldugun iletti.
+    // Bu duruma uygulamayi deploy ettikten sonra bir bakalim.
     public async Task InvalidateGroupAsync(string cacheGroup, CancellationToken cancellationToken)
+{
+    try
     {
-        var groupSetKey = $"Group:{cacheGroup}";
+        ArgumentException.ThrowIfNullOrEmpty(cacheGroup);
+        
+        var groupSetKey = CreateGroupKey(cacheGroup);
 
         var cacheKeys = await _redisDb.SetMembersAsync(groupSetKey);
 
-        foreach (var key in cacheKeys)
+        // Use parallel processing for better performance with large sets
+        var tasks = cacheKeys.Select(async key =>
         {
-            await _cache.RemoveAsync(key, cancellationToken);
+            try
+            {
+                await _cache.RemoveAsync(key, cancellationToken);
 
-            _logger.LogInformation($"[Cache Invalidate] Group: {cacheGroup}, Key: {key}");
-        }
+                _logger.LogInformation("Cache key {Key} from group {Group} invalidated", key, cacheGroup);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to invalidate cache key {Key} from group {Group}", key, cacheGroup);
+            }
+        });
 
-        // Remove the group set after invalidation
+        await Task.WhenAll(tasks);
         await _redisDb.KeyDeleteAsync(groupSetKey);
     }
+    catch (Exception ex)
+    {
+        _logger.LogError(ex, "Failed to invalidate cache group {Group}", cacheGroup);
+        throw;
+    }
+}
+
+// Extract string literals to constants
+private const string GroupKeyPrefix = "Group:";
+private static string CreateGroupKey(string group) => $"{GroupKeyPrefix}{group}";
 }
