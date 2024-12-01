@@ -19,6 +19,7 @@ public sealed class ApplicationUser : IdentityUser<Guid>, ICreatedByEntity, IMod
     public ICollection<UserPromptComment> UserPromptComments { get; set; } = [];
     public ICollection<UserFavoritePrompt> UserFavoritePrompts { get; set; } = [];
     public ICollection<UserLikePrompt> UserLikePrompts { get; set; } = [];
+    public ICollection<Prompt> CreatedPrompts { get; set; } = [];
 
     public static ApplicationUser Create(string email, FullName fullName, bool isEmailConfirmed = false)
     {

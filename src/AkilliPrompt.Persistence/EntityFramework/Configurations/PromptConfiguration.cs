@@ -1,4 +1,5 @@
 ﻿using AkilliPrompt.Domain.Entities;
+using AkilliPrompt.Domain.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -36,6 +37,19 @@ public sealed class PromptConfiguration : IEntityTypeConfiguration<Prompt>
             .IsRequired()
             .HasDefaultValue(false);
 
+        // LikeCount
+        builder.Property(x => x.LikeCount)
+            .IsRequired()
+            .HasDefaultValue(0);
+
+        builder.HasIndex(x => x.LikeCount)
+        .IsDescending()
+        .HasDatabaseName("IX_Prompts_LikeCount_Desc");
+
+        // CreatorId
+        builder.HasOne<ApplicationUser>(x => x.Creator)
+            .WithMany(x => x.CreatedPrompts)
+            .HasForeignKey(x => x.CreatorId);
 
         // UserFavoritePrompts Relationship
         builder.HasMany(x => x.UserFavoritePrompts)
