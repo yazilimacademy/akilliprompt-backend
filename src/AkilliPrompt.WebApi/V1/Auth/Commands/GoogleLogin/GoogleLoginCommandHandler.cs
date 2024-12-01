@@ -11,6 +11,8 @@ using FluentValidation.Results;
 using AkilliPrompt.Domain.Settings;
 using Microsoft.Extensions.Options;
 using System.Text.Json;
+using AkilliPrompt.Persistence.Services;
+using AkilliPrompt.Domain.Constants;
 
 namespace AkilliPrompt.WebApi.V1.Auth.Commands.GoogleLogin;
 
@@ -19,20 +21,20 @@ public sealed class GoogleLoginCommandHandler : IRequestHandler<GoogleLoginComma
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly JwtManager _jwtManager;
     private readonly ApplicationDbContext _dbContext;
-    private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly JwtSettings _jwtSettings;
+    private readonly ICurrentUserService _currentUserService;
 
     public GoogleLoginCommandHandler(
         UserManager<ApplicationUser> userManager,
         JwtManager jwtManager,
         ApplicationDbContext dbContext,
-        IHttpContextAccessor httpContextAccessor,
+        ICurrentUserService currentUserService,
         IOptions<JwtSettings> jwtSettings)
     {
         _userManager = userManager;
         _jwtManager = jwtManager;
         _dbContext = dbContext;
-        _httpContextAccessor = httpContextAccessor;
+        _currentUserService = currentUserService;
         _jwtSettings = jwtSettings.Value;
     }
 
@@ -55,13 +57,9 @@ public sealed class GoogleLoginCommandHandler : IRequestHandler<GoogleLoginComma
 
             var result = await _userManager.CreateAsync(user);
 
-            if (!result.Succeeded)
-            {
-                var failures = result.Errors.Select(error => new ValidationFailure(error.Code, error.Description));
-                throw new ValidationException(failures);
-            }
+            ThrowIfIdentityResultFailed(result);
 
-            await _userManager.AddToRoleAsync(user, "User");
+            await _userManager.AddToRoleAsync(user, RoleConstants.UserRole);
         }
 
         // Generate JWT token
@@ -73,15 +71,7 @@ public sealed class GoogleLoginCommandHandler : IRequestHandler<GoogleLoginComma
         var refreshToken = new RefreshToken(Guid.CreateVersion7().ToString(), DateTime.UtcNow.Add(_jwtSettings.RefreshTokenExpiration));
 
         // Store refresh token in database
-        var refreshTokenEntity = new Domain.Entities.RefreshToken
-        {
-            Token = refreshToken.Value,
-            Expires = refreshToken.ExpiresOnUtc,
-            CreatedByIp = _httpContextAccessor.HttpContext?.Connection.RemoteIpAddress?.ToString() ?? "0.0.0.0",
-            SecurityStamp = Guid.NewGuid().ToString(),
-            UserId = user.Id,
-            Id = Guid.CreateVersion7(),
-        };
+        var refreshTokenEntity = CreateRefreshToken(user, refreshToken);
 
         _dbContext.RefreshTokens.Add(refreshTokenEntity);
 
@@ -91,5 +81,27 @@ public sealed class GoogleLoginCommandHandler : IRequestHandler<GoogleLoginComma
             new GoogleLoginDto(accessToken, refreshToken),
             "Login successful");
 
+    }
+
+    private static void ThrowIfIdentityResultFailed(IdentityResult result)
+    {
+        if (!result.Succeeded)
+        {
+            var failures = result.Errors.Select(error => new ValidationFailure(error.Code, error.Description));
+            throw new ValidationException(failures);
+        }
+    }
+
+    private Domain.Entities.RefreshToken CreateRefreshToken(ApplicationUser user, RefreshToken refreshToken)
+    {
+        return new Domain.Entities.RefreshToken
+        {
+            Token = refreshToken.Value,
+            Expires = refreshToken.ExpiresOnUtc,
+            CreatedByIp = _currentUserService.IpAddress,
+            SecurityStamp = user.SecurityStamp!,
+            UserId = user.Id,
+            Id = Guid.CreateVersion7(),
+        };
     }
 }

@@ -29,6 +29,7 @@ public sealed class ApplicationUser : IdentityUser<Guid>, ICreatedByEntity, IMod
             UserName = email,
             FullName = fullName,
             EmailConfirmed = isEmailConfirmed,
+            SecurityStamp = Guid.NewGuid().ToString()
         };
     }
 }

@@ -5,6 +5,7 @@ using Serilog;
 using AkilliPrompt.WebApi.Configuration;
 using AkilliPrompt.WebApi.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using AkilliPrompt.WebApi.Filters;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
@@ -41,7 +42,9 @@ try
         options.SuppressModelStateInvalidFilter = true;
     });
 
-    builder.Services.AddControllers();
+    builder.Services.AddControllers(options =>{
+        options.Filters.Add<GlobalExceptionFilter>();
+    });
 
 
     // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
