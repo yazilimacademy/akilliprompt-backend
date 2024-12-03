@@ -70,6 +70,12 @@ Akıllı Prompt projesinin geliştirilmesi ve büyütülmesi sürecinde siz de y
 - **Yazılım Academy Web**: Daha fazla bilgi ve kaynak için [Yazılım Academy Web Sitesi](https://yazilim.academy/)
 - **YouTube**: Eğitim videoları ve duyurular için [YouTube Kanalımız](https://www.youtube.com/@yazilimacademy)
 
-## Teşekkürler
 
+
+
+### Oricin ve Yazılım Academy’deki ekip arkadaşlarımıza çok teşekkür ederiz. 👇
+
+<a href="https://github.com/oricintechnologies"><img width="60px" alt="AltuDev" src="https://github.com/oricintechnologies.png"/></a>
+
+## Teşekkürler
 Projemize gösterdiğiniz ilgi ve desteğiniz için çok teşekkür ederiz. Birlikte daha büyük bir topluluk oluşturabilir ve daha faydalı projeler geliştirebiliriz. 🙏
