@@ -81,6 +81,7 @@ Akıllı Prompt projesinin geliştirilmesi ve büyütülmesi sürecinde siz de y
 <a href="https://github.com/ladrons"><img width="60px" alt="ladrons" src="https://github.com/ladrons.png"/></a>
 <a href="https://github.com/safakyilmaz-mis"><img width="60px" alt="safakyilmaz-mis" src="https://github.com/safakyilmaz-mis.png"/></a>
 <a href="https://github.com/alihangudenoglu"><img width="60px" alt="alihangudenoglu" src="https://github.com/alihangudenoglu.png"/></a>
+<a href="https://github.com/gurkantngl"><img width="60px" alt="gurkantngl" src="https://github.com/gurkantngl.png"/></a>
 
 ## Teşekkürler
 Projemize gösterdiğiniz ilgi ve desteğiniz için çok teşekkür ederiz. Birlikte daha büyük bir topluluk oluşturabilir ve daha faydalı projeler geliştirebiliriz. 🙏
