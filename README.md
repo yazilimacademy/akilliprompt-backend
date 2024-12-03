@@ -77,6 +77,7 @@ Akıllı Prompt projesinin geliştirilmesi ve büyütülmesi sürecinde siz de y
 
 <a href="https://github.com/oricintechnologies"><img width="60px" alt="Oricin" src="https://github.com/oricintechnologies.png"/></a>
 <a href="https://github.com/iparzival0"><img width="60px" alt="EmirhanKara" src="https://github.com/iparzival0.png"/></a>
+<a href="https://github.com/NNakreSS"><img width="60px" alt="NNakreSS" src="https://github.com/NNakreSS.png"/></a>
 
 ## Teşekkürler
 Projemize gösterdiğiniz ilgi ve desteğiniz için çok teşekkür ederiz. Birlikte daha büyük bir topluluk oluşturabilir ve daha faydalı projeler geliştirebiliriz. 🙏
