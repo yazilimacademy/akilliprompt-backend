@@ -76,6 +76,7 @@ Akıllı Prompt projesinin geliştirilmesi ve büyütülmesi sürecinde siz de y
 ### Oricin ve Yazılım Academy’deki ekip arkadaşlarımıza çok teşekkür ederiz. 👇
 
 <a href="https://github.com/oricintechnologies"><img width="60px" alt="AltuDev" src="https://github.com/oricintechnologies.png"/></a>
+<a href="https://github.com/iparzival0"><img width="60px" alt="AltuDev" src="https://github.com/iparzival0.png"/></a>
 
 ## Teşekkürler
 Projemize gösterdiğiniz ilgi ve desteğiniz için çok teşekkür ederiz. Birlikte daha büyük bir topluluk oluşturabilir ve daha faydalı projeler geliştirebiliriz. 🙏
