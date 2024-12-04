@@ -13,16 +13,12 @@ public class GetAllPromptCommentsQueryValidator : AbstractValidator<GetAllPrompt
         _existenceService = existenceService;
 
         RuleFor(e => e.PageNumber)
-            .GreaterThanOrEqualTo(1)
-            .WithMessage("Lütfen geçerli bir sayfa numarası seçiniz.")
-            .LessThanOrEqualTo(50)
-            .WithMessage("Lütfen geçerli bir sayfa numarası seçiniz.");
+            .InclusiveBetween(1, 50)
+            .WithMessage("Lütfen 1 ile 50 arasında bir sayfa numarası seçiniz.");
 
         RuleFor(e => e.PageSize)
-            .GreaterThanOrEqualTo(1)
-            .WithMessage("Lütfen geçerli bir sayfa boyutu seçiniz.")
-            .LessThanOrEqualTo(50)
-            .WithMessage("Lütfen geçerli bir sayfa boyutu seçiniz.");
+            .InclusiveBetween(1, 50)
+            .WithMessage("Lütfen 1 ile 50 arasında bir sayfa boyutu seçiniz.");
 
         RuleFor(e => e.PromptId)
         .NotEmpty()
