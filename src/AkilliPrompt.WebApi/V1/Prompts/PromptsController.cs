@@ -4,6 +4,7 @@ using AkilliPrompt.WebApi.V1.Prompts.Queries.GetAll;
 using AkilliPrompt.WebApi.V1.Prompts.Queries.GetById;
 using Asp.Versioning;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AkilliPrompt.WebApi.V1.Prompts;
@@ -11,6 +12,7 @@ namespace AkilliPrompt.WebApi.V1.Prompts;
 [ApiController]
 [ApiVersion("1.0")]
 [Route("v{version:apiVersion}/[controller]")]
+[Authorize]
 public sealed class PromptsController : ControllerBase
 {
 

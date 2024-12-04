@@ -43,6 +43,7 @@
   <ItemGroup>
     <Folder Include="Attributes\" />
     <Folder Include="Logs\" />
+    <Folder Include="V1\PromptComments\Commands\" />
   </ItemGroup>
 
 </Project>
