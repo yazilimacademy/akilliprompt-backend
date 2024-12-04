@@ -1,3 +1,4 @@
+using AkilliPrompt.WebApi.Models;
 using AkilliPrompt.WebApi.V1.PromptComments.Queries.GetAll;
 using Asp.Versioning;
 using MediatR;
@@ -20,11 +21,12 @@ namespace AkilliPrompt.WebApi.V1.PromptComments
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(PaginatedList<GetAllPromptCommentsDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> GetAll([FromQuery] GetAllPromptCommentsQuery query, CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(query, cancellationToken);
-
-            return Ok(result);
+            return Ok(await _mediator.Send(query, cancellationToken));
         }
     }
 }

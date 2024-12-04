@@ -6,6 +6,7 @@ namespace AkilliPrompt.WebApi.V1.PromptComments.Queries.GetAll;
 
 public sealed record GetAllPromptCommentsDto
 {
+    public Guid Id { get; set; }
     public int Level { get; set; }
     public string Content { get; set; }
 
