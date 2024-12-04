@@ -1,11 +1,8 @@
 using AkilliPrompt.Domain.Common;
 using AkilliPrompt.WebApi.Services;
 using FluentValidation;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace AkilliPrompt.WebApi.Common;
+namespace AkilliPrompt.WebApi.Common.FluentValidation;
 
 /// <summary>
 /// Base validator to check existence of an entity by ID.

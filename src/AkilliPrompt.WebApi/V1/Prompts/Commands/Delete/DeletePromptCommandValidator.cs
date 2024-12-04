@@ -1,5 +1,5 @@
 using AkilliPrompt.Domain.Entities;
-using AkilliPrompt.WebApi.Common;
+using AkilliPrompt.WebApi.Common.FluentValidation;
 using AkilliPrompt.WebApi.Services;
 using FluentValidation;
 
