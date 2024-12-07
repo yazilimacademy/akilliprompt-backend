@@ -86,6 +86,7 @@ Akıllı Prompt projesinin geliştirilmesi ve büyütülmesi sürecinde siz de y
 <a href="https://github.com/baharsevinti"><img width="60px" alt="baharsevinti" src="https://github.com/baharsevinti.png"/></a>
 <a href="https://github.com/saliharana"><img width="60px" alt="saliharana" src="https://github.com/saliharana.png"/></a>
 <a href="https://github.com/haticebulbul"><img width="60px" alt="haticebulbul" src="https://github.com/haticebulbul.png"/></a>
+<a href="https://github.com/Taiizor"><img width="60px" alt="Taiizor" src="https://github.com/Taiizor.png"/></a>
 
 ## Teşekkürler
 Projemize gösterdiğiniz ilgi ve desteğiniz için çok teşekkür ederiz. Birlikte daha büyük bir topluluk oluşturabilir ve daha faydalı projeler geliştirebiliriz. 🙏
